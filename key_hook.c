@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/18 17:41:41 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/19 14:20:19 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int				key_hook(int keycode, t_data *e)
 {
 	if (keycode == 53)
 		exit(0);
+	expose_hook(e);
 	return (0);
 }

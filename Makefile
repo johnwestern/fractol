@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/04/18 17:48:21 by jdavin           ###   ########.fr        #
+#    Updated: 2016/04/19 14:22:54 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC_DIR = .src/
 SRC_FILES = main.c \
 	    	put_error.c \
 	    	ft_init.c \
-	    	key_hook.c
+	    	key_hook.c \
+	    	expose_hook.c
 
 O_FILES = $(SRC_FILES:.c=.o)
 
@@ -45,7 +46,6 @@ $(NAME): $(O_FILES)
 
 clean:
 	@make clean -C libft
-	@make clean -C minilibx_macos
 	@rm -f $(O_FILES)
 
 fclean: clean

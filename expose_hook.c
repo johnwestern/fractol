@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   expose_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/18 17:23:26 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/19 14:21:39 by jdavin           ###   ########.fr       */
+/*   Created: 2016/04/19 14:11:45 by jdavin            #+#    #+#             */
+/*   Updated: 2016/04/19 14:18:46 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void				ft_init(void)
+int			expose_hook(t_data *e)
 {
-	t_data			e;
-
-	e.mlx = mlx_init();
-	e.win = mlx_new_window(e.mlx, WDH, HGHT, "Fract\'ol");
-	e.img = mlx_new_image(e.mlx, WDH, HGHT);
-	mlx_expose_hook(e.win, expose_hook, &e);
-	mlx_key_hook(e.win, key_hook, &e);
-	mlx_loop(e.mlx);
+	mlx_clear_window(e->mlx, e->win);
+	mlx_put_image_to_window(e->mlx, e->win, e->img, WDH, HGHT);
+	return (0);
 }
