@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/04/19 14:22:54 by jdavin           ###   ########.fr        #
+#    Updated: 2016/04/23 14:21:16 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC_FILES = main.c \
 	    	put_error.c \
 	    	ft_init.c \
 	    	key_hook.c \
-	    	expose_hook.c
+	    	expose_hook.c \
+	    	ft_test.c
 
 O_FILES = $(SRC_FILES:.c=.o)
 
