@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 14:20:32 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/23 16:51:41 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/23 17:07:56 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void		ft_test(t_data *e)
 	int				pos;
 
 	color.rgb[0] = 255;
-	color.rgb[1] = 255;
-	color.rgb[2] = 255;
+	color.rgb[1] = 0;
+	color.rgb[2] = 0;
 	color.rgb[3] = 0;
 	octet = e->sizeline / WDH;
 	pos = 240 * e->sizeline;
@@ -28,8 +28,8 @@ void		ft_test(t_data *e)
 	{
 		if (pos % e->sizeline == 0)
 		{
-			color.rgb[2]--;
-			color.rgb[1]--;
+			color.rgb[2]++;
+			color.rgb[1]++;
 		}
 		if (ft_memcmp(e->data + pos, &(color.color), octet) != 0)
 			ft_memcpy(e->data + pos, &(color.color), octet);
