@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expose_hook.c                                      :+:      :+:    :+:   */
+/*   set_color_pixel.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 14:11:45 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/25 18:06:31 by jdavin           ###   ########.fr       */
+/*   Created: 2016/04/25 17:59:47 by jdavin            #+#    #+#             */
+/*   Updated: 2016/04/25 18:46:44 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int			expose_hook(t_data *e)
+void		set_color_pixel(int x, int y, t_data *e)
 {
-	if (e->img)
-		mlx_destroy_image(e->mlx, e->img);
-	e->img = mlx_new_image(e->mlx, WDH, HGHT);
-	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
-	draw_mandelbrot(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	return (0);
+	int		octet;
+	int		pos;
+
+	octet = e->sizeline / WDH;
+	pos = x * octet + y * e->sizeline;
+	ft_memcpy(e->data + pos, &e->color.color, octet);
 }
