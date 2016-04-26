@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:23:26 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/26 02:27:23 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/26 02:59:33 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				ft_init(void)
 	e.data = mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	e.offset_x = WDH / 2;
 	e.offset_y = HGHT / 2;
-	e.zoom = 100;
+	e.zoom = 160;
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);
 	mlx_loop(e.mlx);
