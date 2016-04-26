@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/25 21:57:19 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/26 02:17:16 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,8 @@ void				draw_mandelbrot(t_data *e)
 		{
 			mandelbrot_calc(e, x, y);
 			i = iter(e);
-			if (i == 1)
-			{
-				e->color.rgb[1] = 190;
-				e->color.rgb[0] = 0;
-				set_color_pixel(x, y, e);
-			}
-			if (i == 2)
-			{
-				e->color.rgb[1] = 0;
-				e->color.rgb[0] = 155;
-				set_color_pixel(x, y, e);
-			}
-			if (i == 3)
-			{
-				e->color.rgb[1] = 0;
-				e->color.rgb[0] = 55;
-				set_color_pixel(x, y, e);
-			}
+			e->color.rgb[0] = i * 20;
+			set_color_pixel(x, y, e);
 			x++;
 		}
 		y++;
