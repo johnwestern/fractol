@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:11:45 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/25 18:06:31 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/27 22:30:22 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int			expose_hook(t_data *e)
 {
-	if (e->img)
-		mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WDH, HGHT);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
 	draw_mandelbrot(e);

@@ -6,14 +6,14 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/25 19:57:09 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/27 22:26:44 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH 720
+# define WDH 1280
 # define HGHT 720
 # define GREEN 0x25FF50
 
@@ -28,6 +28,12 @@ typedef union		u_color
 	char			rgb[4];
 }					t_color;
 
+typedef struct		s_cplx
+{
+	float			x;
+	float			y;
+}					t_cplx;
+
 typedef struct		s_data
 {
 	void			*mlx;
@@ -39,17 +45,9 @@ typedef struct		s_data
 	int 			maxiter;
 	int				offset_x;
 	int				offset_y;
-	double			image_x;
-	double			image_y;
 	double			c_r;
 	double			c_i;
-	double			z_r;
-	double			z_i;
-	double			x1;
-	double			x2;
-	double			y1;
-	double			y2;
-	double 			zoom;
+	float 			zoom;
 	char			*data;
 	t_color			color;
 }					t_data;
@@ -59,11 +57,9 @@ int					key_hook(int keycode, t_data *e);
 int					expose_hook(t_data *e);
 void				put_usage_error(char *av);
 void				put_malloc_error(void);
-void				ft_init(void);
-void				init_calc(t_data *e);
+void				ft_init(t_data *e);
 void				draw_mandelbrot(t_data *e);
-void				set_color_pixel(int x, int y, t_data *e);
-void				mandelbrot_calc(t_data *e, int x, int y);
-void				mandelbrot_scale(t_data *e);
+void				set_pixel(int x, int y, t_data *e);
+void				set_i_color(int i, t_data *e);
 
 #endif

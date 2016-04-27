@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/04/25 18:06:05 by jdavin           ###   ########.fr        #
+#    Updated: 2016/04/27 22:05:37 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,11 @@ SRC_DIR = .src/
 
 SRC_FILES = main.c \
 	    	put_error.c \
-	    	ft_init.c \
 	    	key_hook.c \
 	    	expose_hook.c \
 	    	draw_mandelbrot.c \
-	    	set_color_pixel.c
-
+	    	set_pixel.c \
+	    	set_i_color.c
 
 O_FILES = $(SRC_FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/26 02:44:53 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/27 22:32:58 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int				key_hook(int keycode, t_data *e)
 	if (keycode == 24)
 		e->zoom += 20;
 	if (keycode == 27)
-		if (e->zoom > 121)
-			e->zoom -= 20;
+		e->zoom -= 20;
 	if (keycode == 126)
 		e->offset_y += 25;
 	if (keycode == 125)
