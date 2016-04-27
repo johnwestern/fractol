@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/27 23:17:24 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/28 00:04:38 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void				draw_mandelbrot(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = (x - e->offset_x - 200) / e->zoom;
+			c.x = (x - e->offset_x - 100) / e->zoom;
 			c.y = (y - e->offset_y) / e->zoom;
 			i = iter(e->maxiter, c);
 			set_i_color(i % 250, e);

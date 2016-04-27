@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/27 23:07:27 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/27 23:59:01 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void				ft_init(t_data *e)
 {
-	e->offset_x = WDH / 2;
-	e->offset_y = HGHT / 2;
 	e->zoom = 340;
+	e->offset_x = WDH  / 2;
+	e->offset_y = HGHT / 2;
 	e->maxiter = 64;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
