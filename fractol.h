@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/27 22:26:44 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/27 23:18:06 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct		s_data
 	int 			maxiter;
 	int				offset_x;
 	int				offset_y;
-	double			c_r;
-	double			c_i;
 	float 			zoom;
 	char			*data;
 	t_color			color;
