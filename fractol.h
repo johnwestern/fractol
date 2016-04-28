@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/28 00:15:03 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/28 12:24:54 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH 1680
-# define HGHT 945
+# define WDH 1600
+# define HGHT 900
 # define GREEN 0x25FF50
 
 # include <stdlib.h>
@@ -43,8 +43,8 @@ typedef struct		s_data
 	int 			sizeline;
 	int				endian;
 	int 			maxiter;
-	int				offset_x;
-	int				offset_y;
+	double			offset_x;
+	double			offset_y;
 	float 			zoom;
 	char			*data;
 	t_color			color;
