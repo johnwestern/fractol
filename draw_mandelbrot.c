@@ -6,16 +6,16 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/28 12:08:08 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/28 18:16:12 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int 			iter(int maxiter, t_cplx c)
+static int			iter(int maxiter, t_cplx c)
 {
 	t_cplx			tmp;
-	int 			i;
+	int				i;
 	float			x;
 
 	i = 0;
@@ -23,7 +23,7 @@ static int 			iter(int maxiter, t_cplx c)
 	tmp.y = 0;
 	while (i < maxiter && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
-		i++;	
+		i++;
 		x = tmp.x;
 		tmp.x = tmp.x * tmp.x - tmp.y * tmp.y + c.x;
 		tmp.y = (2 * x * tmp.y) + c.y;

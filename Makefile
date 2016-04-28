@@ -28,7 +28,7 @@ O_FILES = $(SRC_FILES:.c=.o)
 
 CC = clang
 
-CC_FLAGS = -Wall -Werror -Wextra -lm
+CC_FLAGS = -Wall -Werror -Wextra -lm -O3 -Ofast
 
 I_LIBFT = -I libft/ -I minilibx_macos/
 

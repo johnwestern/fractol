@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/28 12:19:05 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/28 18:30:23 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int				key_hook(int keycode, t_data *e)
 	if (keycode == 27)
 		e->maxiter -= 20;
 	if (keycode == 126)
-		e->offset_y += 0.03 * 1 / e->zoom;
+		e->offset_y -= 0.003 * 1 / e->zoom;
 	if (keycode == 125)
-		e->offset_y -= 0.03 * 1 / e->zoom;
+		e->offset_y += 0.003 * 1 / e->zoom;
 	if (keycode == 123)
-		e->offset_x += 0.03 * 1 / e->zoom;
-	if (keycode == 124)
 		e->offset_x -= 0.03 * 1 / e->zoom;
+	if (keycode == 124)
+		e->offset_x += 0.03 * 1 / e->zoom;
 	expose_hook(e);
 	return (0);
 }
