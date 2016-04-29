@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/28 18:37:53 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/30 00:39:25 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH 1280
-# define HGHT 720
+# define WDH 1600
+# define HGHT 900
 # define GREEN 0x25FF50
 
 # include <stdlib.h>
@@ -43,8 +43,10 @@ typedef struct		s_data
 	int				sizeline;
 	int				endian;
 	int				maxiter;
-	double			offset_x;
-	double			offset_y;
+	float			offset_x;
+	float			mouse_x;
+	float			offset_y;
+	float			mouse_y;
 	float			zoom;
 	char			*data;
 	t_color			color;
@@ -52,12 +54,11 @@ typedef struct		s_data
 
 int					main(int ac, char **av);
 int					key_hook(int keycode, t_data *e);
-int					expose_hook(t_data *e);
+int					mouse_hook(int button, int x, int y, t_data *e);
 void				put_usage_error(char *av);
 void				put_malloc_error(void);
 void				ft_init(t_data *e);
 void				draw_mandelbrot(t_data *e);
-void				set_pixel(int x, int y, t_data *e);
 void				set_i_color(int i, t_data *e);
 
 #endif
