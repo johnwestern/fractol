@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 02:51:38 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 04:00:14 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ static void		auto_iter(t_data *e)
 {
 	e->ato = 1;
 	if (e->zoom > 1 && e->zoom <= 100)
-		e->maxiter = 60 + 50 * (e->zoom / 100);
+		e->maxiter = 60 + 60 * (e->zoom / 100);
 	if (e->zoom > 100 && e->zoom <= 1000)
-		e->maxiter = 110 + 50 * (e->zoom / 1000);
+		e->maxiter = 120 + 60 * (e->zoom / 1000);
 	if (e->zoom > 1000 && e->zoom <= 5000)
-		e->maxiter = 160 + 50 * (e->zoom / 5000);
+		e->maxiter = 180 + 60 * (e->zoom / 5000);
 	if (e->zoom > 5000 && e->zoom <= 10000)
-		e->maxiter = 210 + 40 * (e->zoom / 10000);
+		e->maxiter = 240 + 50 * (e->zoom / 10000);
 	if (e->zoom > 10000 && e->zoom <= 20000)
-		e->maxiter = 250 + 55 * (e->zoom / 20000);
+		e->maxiter = 290 + 35 * (e->zoom / 20000);
 	if (e->zoom > 20000 && e->zoom <= 60000)
-		e->maxiter = 305 + 50 * (e->zoom / 60000);
+		e->maxiter = 325 + 30 * (e->zoom / 60000);
 	if (e->zoom > 60000 && e->zoom <= 100000)
 		e->maxiter = 355 + 50 * (e->zoom / 100000);
 	if (e->zoom > 100000)
