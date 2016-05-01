@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 12:00:15 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 12:45:15 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void		setrgb(t_color *color, char b, char g, char r)
 
 static void		enenced_start_color(int i, t_data *e, t_flcl *f)
 {
-	f->a =  0.12 + i / 60;
-	setrgb(&e->color, f->a * 255, 0, 0);
+	f->a =  0.1 + i / 60;
+	setrgb(&e->color, 0, 0, f->a * 255);
 }
 
 void			set_i_color(int i, t_data *e)
