@@ -6,20 +6,23 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/29 23:47:32 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 02:32:56 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			ft_init(t_data *e)
+void			init(t_data *e)
 {
-	e->zoom = 1;
-	e->offset_x = -0.5;
+	e->zoom = 0.80;
+	e->offset_x = -1;
 	e->offset_y = 0;
 	e->mouse_x = 0;
 	e->mouse_y = 0;
-	e->maxiter = 64;
+	e->maxiter = 300;
+	e->ato = 0;
+	e->hud = 0;
+	e->start = 0;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
 	e->img = mlx_new_image(e->mlx, WDH, HGHT);
@@ -35,7 +38,7 @@ int				main(int ac, char **av)
 	t_data		e;
 
 	if (ac == 1)
-		ft_init(&e);
+		init(&e);
 	else
 		put_usage_error(av[0]);
 	return (0);

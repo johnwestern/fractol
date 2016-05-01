@@ -6,13 +6,13 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/30 13:17:05 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 02:21:24 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void		setrgb(t_color *color, char r, char g, char b)
+static void		setrgb(t_color *color, char b, char g, char r)
 {
 	color->rgb[0] = r;
 	color->rgb[1] = g;
@@ -20,30 +20,36 @@ static void		setrgb(t_color *color, char r, char g, char b)
 	color->rgb[3] = 0;
 }
 
+static void		enenced_start_color(int i, t_data *e, t_flcl *f)
+{
+	if (i > 2)
+		f->a = 0 + i / 30;
+	else
+		f->a = 0;
+	setrgb(&e->color, f->a * 255, 0, 0);
+}
+
 void			set_i_color(int i, t_data *e)
 {
-	float		a;
-	float		b;
-	float		c;
-	float		l;
-
-	l = 0.5 * (i < e->maxiter);
-	a = 1 - fabs(2 * l - 1);
-	b = a * (1.0 - fabs(fmod((i / 60.0), 2) - 1.0));
-	c = l - 0.5 * a;
-	if (i >= 0 && i < 60)
-		setrgb(&e->color, (a + c) * 255, (b + c) * 255, (0 + c) * 255);
+	t_flcl		f;
+	
+	f.l = 0.5 * (i < e->maxiter);
+	f.a = 1 - fabs(2 * f.l - 1);
+	f.b = f.a * (1.0 - fabs(fmod((i / 60.0), 2) - 1.0));
+	f.c = f.l - 0.5 * f.a;
+	if (i >= 0 && i < 30)
+		enenced_start_color(i, e, &f);
+	else if (i >= 30 && i < 60)
+		setrgb(&e->color, (f.a + f.c) * 255, (f.b + f.c) * 255, f.c * 255);
 	else if (i >= 60 && i < 120)
-		setrgb(&e->color, (b + c) * 255, (a + c) * 255, (0 + c) * 255);
+		setrgb(&e->color, (f.b + f.c) * 255, (f.a + f.c) * 255, f.c * 255);
 	else if (i >= 120 && i < 180)
-		setrgb(&e->color, (0 + c) * 255, (a + c) * 255, (b + c) * 255);
+		setrgb(&e->color, f.c * 255, (f.a + f.c) * 255, (f.b + f.c) * 255);
 	else if (i >= 180 && i < 240)
-		setrgb(&e->color, (0 + c) * 255, (b + c) * 255, (a + c) * 255);
-	else if (i >= 240 && i < 300)
-		setrgb(&e->color, (b + c) * 255, (0 + c) * 255, (a + c) * 255);
-	else if (i >= 300 && i < 400)
-		setrgb(&e->color, (a + c) * 255, (0 + c) * 255, (b + c) * 255);
-	else
-		setrgb(&e->color, 255, 255, 255);
+		setrgb(&e->color, f.c * 255, (f.b + f.c) * 255, (f.a + f.c) * 255);
+	else if (i >= 240 && i < 325)
+		setrgb(&e->color, (f.b + f.c) * 255, f.c * 255, (f.a + f.c) * 255);
+	else if (i >= 325 && i < 400)
+		setrgb(&e->color, (f.a + f.c) * 255, 0, (f.b + f.c) * 255);
 }
 

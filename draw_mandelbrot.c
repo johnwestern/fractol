@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/04/30 13:19:44 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/04/30 17:22:19 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,5 @@ void				draw_mandelbrot(t_data *e)
 		y++;
 	}
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "Zoom x");
-	mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
-	mlx_string_put(e->mlx, e->win, 20, 30, 0xFFFFFF, "Iter =");
-	mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->maxiter));
-	mlx_string_put(e->mlx, e->win, 910, 10, 0xFFFFFF, "Press [R] to restore default values");
+	display_str(e);
 }

@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/04/29 23:46:37 by jdavin           ###   ########.fr        #
+#    Updated: 2016/04/30 17:20:30 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INC_DIR = ./
 SRC_DIR = .src/
 
 SRC_FILES = main.c \
-	    	put_error.c \
+	    	display_strings.c \
 	    	hook.c \
 	    	draw_mandelbrot.c \
 	    	set_color.c
