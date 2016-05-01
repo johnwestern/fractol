@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 18:59:20 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 19:24:30 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ static    void            option1(t_data *e)
 
 void			init1(t_data *e, char *opt)
 {
+	e->zoom = 0.80;
+	e->offset_x = -1;
+	e->offset_y = 0;
+	e->mouse_x = 0;
+	e->mouse_y = 0;
+	e->mitr = 360;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
 	e->img = mlx_new_image(e->mlx, WDH, HGHT);
@@ -59,9 +65,4 @@ int				main(int ac, char **av)
 	return (0);
 }
 
-	/*e->zoom = 0.80;
-	e->offset_x = -1;
-	e->offset_y = 0;
-	e->mouse_x = 0;
-	e->mouse_y = 0;
-	e->mitr = 360;*/
+	
