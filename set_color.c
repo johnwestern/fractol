@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 03:55:02 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 12:00:15 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			set_i_color(int i, t_data *e)
 {
 	t_flcl		f;
 	
-	f.l = 0.5 * (i < e->maxiter);
+	f.l = 0.5 * (i < e->mitr);
 	f.a = 1 - fabs(2 * f.l - 1);
 	f.b = f.a * (1.0 - fabs(fmod((i / 60.0), 2) - 1.0));
 	f.c = f.l - 0.5 * f.a;

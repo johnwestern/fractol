@@ -6,23 +6,23 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 04:00:14 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 12:05:15 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int				mouse_hook(int button, int x, int y, t_data *e)
+int				mouse_hook(int but, int x, int y, t_data *e)
 {
 	if (e->start == 1)
 	{
-		if (x < WDH && x > 0 && y < HGHT && y > 0 && button == 1)
+		if (x < WDH && x > 0 && y < HGHT && y > 0 && (but == 1 || but == 4))
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
 			e->zoom *= 1.05;
 		}
-		if (x < WDH && x > 0 && y < HGHT && y > 0 && button == 2)
+		if (x < WDH && x > 0 && y < HGHT && y > 0 && (but == 2 || but == 5))
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
@@ -37,21 +37,21 @@ static void		auto_iter(t_data *e)
 {
 	e->ato = 1;
 	if (e->zoom > 1 && e->zoom <= 100)
-		e->maxiter = 60 + 60 * (e->zoom / 100);
+		e->mitr = 60 + 60 * (e->zoom / 100);
 	if (e->zoom > 100 && e->zoom <= 1000)
-		e->maxiter = 120 + 60 * (e->zoom / 1000);
+		e->mitr = 120 + 60 * (e->zoom / 1000);
 	if (e->zoom > 1000 && e->zoom <= 5000)
-		e->maxiter = 180 + 60 * (e->zoom / 5000);
+		e->mitr = 180 + 60 * (e->zoom / 5000);
 	if (e->zoom > 5000 && e->zoom <= 10000)
-		e->maxiter = 240 + 50 * (e->zoom / 10000);
+		e->mitr = 240 + 50 * (e->zoom / 10000);
 	if (e->zoom > 10000 && e->zoom <= 20000)
-		e->maxiter = 290 + 35 * (e->zoom / 20000);
+		e->mitr = 290 + 35 * (e->zoom / 20000);
 	if (e->zoom > 20000 && e->zoom <= 60000)
-		e->maxiter = 325 + 30 * (e->zoom / 60000);
+		e->mitr = 325 + 30 * (e->zoom / 60000);
 	if (e->zoom > 60000 && e->zoom <= 100000)
-		e->maxiter = 355 + 50 * (e->zoom / 100000);
+		e->mitr = 355 + 50 * (e->zoom / 100000);
 	if (e->zoom > 100000)
-		e->maxiter = 395;
+		e->mitr = 395;
 }
 
 static void		reset_val(t_data *e)
@@ -63,8 +63,8 @@ static void		reset_val(t_data *e)
 	e->mouse_y = 0;
 	e->mouse_x = 0;
 	e->ato = 0;
-	e->hud = 1;
-	e->maxiter = 60;
+	e->hud = 0;
+	e->mitr = 60;
 }
 
 static void		arr_move(int key, t_data *e)
@@ -96,14 +96,14 @@ int				key_hook(int key, t_data *e)
 	}
 	if (key == 0)
 		e->zoom /= 1.05;
-	if ((key == 24 && e->maxiter <= 390) || (key == 27))
+	if ((key == 24 && e->mitr <= 390) || (key == 27))
 	{
 		if (key == 24)
-			e->maxiter += 5;
-		if (key == 27 && e->maxiter > 35)
-			e->maxiter -= 5;
-		else if (key == 27 && e->maxiter > 30)
-			e->maxiter -= 1;
+			e->mitr += 5;
+		if (key == 27 && e->mitr > 35)
+			e->mitr -= 5;
+		else if (key == 27 && e->mitr > 30)
+			e->mitr -= 1;
 		e->ato = 0;
 	}
 	if (key == 126 || key == 125 || key == 123 || key == 124)

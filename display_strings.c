@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 03:24:17 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 12:20:06 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@ static void		display_str2(t_data *e)
 {
 	if (e->hud == 1)
 	{
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, "Use your pointer to focus on a point");
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFFFFFF, "use arrows to move");
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
+			"Use your pointer to focus on a point");
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFFFFFF, \
+			"use arrows to move && use + | - to change iter");
 		if (e->start == 1)
 		{
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFFFFFF, "Press [R] to restart");
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFFFFFF, "Press [H] to hide this");
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFFFFFF, \
+				"Press [R] to restart");
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFFFFFF, \
+				"Press [H] to hide this");
 		}
 		else
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFFFFFF, "Press [R] to start");
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, "Press [Q] / [A] auto [zoom & iter]");
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0x00FF00, \
+				"Press [R] to start");
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
+			"Press [Q] / [A] auto [zoom & iter]");
 	}
 	else
-		mlx_string_put(e->mlx, e->win, 15, (HGHT - 35), 0xFFFFFF, "[H]");
+		mlx_string_put(e->mlx, e->win, 15, (HGHT - 35), 0xFFFF00, "[H]");
 }
 
 void			display_str(t_data *e)
@@ -38,22 +44,16 @@ void			display_str(t_data *e)
 		mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "Zoom x");
 		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
 		mlx_string_put(e->mlx, e->win, 20, 30, 0xFFFFFF, "Iter =");
-		if (e->maxiter <= 392 && e->ato == 0)
-			mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->maxiter));
-		else if (e->maxiter <= 392 && e->ato == 1)
-		{
-			mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->maxiter));
+		mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->mitr));
+		if (e->mitr <= 390 && e->ato == 1)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0x00FF00, "Auto");
-		}
-		else
-		{
-			mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->maxiter));
+		else if (e->mitr > 390)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0xF80000, "Max");
-		}
 	}
 	display_str2(e);
 	if (e->start == 0)
-		mlx_string_put(e->mlx, e->win, 100, 100, 0xFFFFFF, "Press [R] to Run the Exploration");
+		mlx_string_put(e->mlx, e->win, (WDH / 20), -10 + (HGHT / 2), \
+		0xFFFFFF, "-- MANDELBROT --");
 }
 
 void			put_usage_error(char *av)
