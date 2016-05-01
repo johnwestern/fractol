@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 12:45:15 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 14:54:59 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ void			set_i_color(int i, t_data *e)
 		setrgb(&e->color, f.c * 255, (f.a + f.c) * 255, (f.b + f.c) * 255);
 	else if (i >= 180 && i < 240)
 		setrgb(&e->color, f.c * 255, (f.b + f.c) * 255, (f.a + f.c) * 255);
-	else if (i >= 240 && i < 325)
+	else if (i >= 240 && i < 320)
 		setrgb(&e->color, (f.b + f.c) * 255, f.c * 255, (f.a + f.c) * 255);
-	else if (i >= 325 && i < 400)
+	else if (i >= 320 && i < 360)
 		setrgb(&e->color, (f.a + f.c) * 255, 0, (f.b + f.c) * 255);
+	else if (i >= 360 && i < 410)
+		setrgb(&e->color, (f.a + f.c) * 255, (f.a + f.c) * 255, (f.a + f.c) * 255);
 }
 

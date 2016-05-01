@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 12:05:15 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 15:03:18 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ static void		auto_iter(t_data *e)
 	if (e->zoom > 1000 && e->zoom <= 5000)
 		e->mitr = 180 + 60 * (e->zoom / 5000);
 	if (e->zoom > 5000 && e->zoom <= 10000)
-		e->mitr = 240 + 50 * (e->zoom / 10000);
-	if (e->zoom > 10000 && e->zoom <= 20000)
-		e->mitr = 290 + 35 * (e->zoom / 20000);
-	if (e->zoom > 20000 && e->zoom <= 60000)
-		e->mitr = 325 + 30 * (e->zoom / 60000);
-	if (e->zoom > 60000 && e->zoom <= 100000)
-		e->mitr = 355 + 50 * (e->zoom / 100000);
+		e->mitr = 240 + 60 * (e->zoom / 10000);
+	if (e->zoom > 10000 && e->zoom <= 30000)
+		e->mitr = 300 + 60 * (e->zoom / 30000);
+	if (e->zoom > 20000 && e->zoom <= 100000)
+		e->mitr = 360 + 35 * (e->zoom / 100000);
 	if (e->zoom > 100000)
 		e->mitr = 395;
 }
