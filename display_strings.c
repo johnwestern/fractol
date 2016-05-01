@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 12:29:28 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 13:31:31 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void		display_str2(t_data *e)
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
 			"Use [mouse & clic] to focus on a point");
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFFFFFF, \
-			"use arrows to move && use + | - to change iter");
+			"use arrows to move && use + | - to ajust iter");
 		if (e->start == 1)
 		{
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFFFFFF, \
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFF0000, \
 				"Press [R] to restart");
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFFFFFF, \
 				"Press [H] to hide this");
