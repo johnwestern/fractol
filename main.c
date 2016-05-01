@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 03:24:40 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 03:56:20 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			init(t_data *e)
 	e->offset_y = 0;
 	e->mouse_x = 0;
 	e->mouse_y = 0;
-	e->maxiter = 300;
+	e->maxiter = 180;
 	e->ato = 0;
 	e->hud = 1;
 	e->start = 0;
