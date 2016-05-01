@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 02:32:56 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 03:24:40 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			init(t_data *e)
 	e->mouse_y = 0;
 	e->maxiter = 300;
 	e->ato = 0;
-	e->hud = 0;
+	e->hud = 1;
 	e->start = 0;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
