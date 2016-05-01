@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 19:00:30 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 22:27:39 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,23 @@ static void		auto_iter(t_data *e)
 
 static void		reset_val(t_data *e)
 {
-	e->start = 1;
-	e->zoom = 1;
-	e->offset_y = 0;
-	e->offset_x = -0.5;
 	e->mouse_y = 0;
 	e->mouse_x = 0;
 	e->ato = 0;
 	e->hud = 0;
 	e->mitr = 60;
+	e->start = 1;
+	e->zoom = 1;
+	if (e->opt1 == 0)
+	{
+		e->offset_y = 0;
+		e->offset_x = -0.5;
+	}
+	if (e->opt1 == 1)
+	{
+		e->offset_y = 0;
+		e->offset_x = -1;
+	}
 }
 
 static void		arr_move(int key, t_data *e)
@@ -89,32 +97,14 @@ int				key_hook(int key, t_data *e)
 	if (key == 12 && (e->zoom *= 1.05))
 		auto_iter(e);
 	if (key == 4)
-	{
-		if (e->hud == 1)
-			e->hud = 0;
-		else
-			e->hud = 1;
-	}
+		hud_switch(e);
 	if (key == 0)
 		e->zoom /= 1.05;
-	if ((key == 24 && e->mitr <= 390) || (key == 27))
-	{
-		if (key == 24)
-			e->mitr += 5;
-		if (key == 27 && e->mitr > 35)
-			e->mitr -= 5;
-		else if (key == 27 && e->mitr > 30)
-			e->mitr -= 1;
-		e->ato = 0;
-	}
+	if (key == 24 || (key == 27))
+		man_iter(key, e);
 	if (key == 126 || key == 125 || key == 123 || key == 124)
 		arr_move(key, e);
 	if (e->start == 1)
-	{
-		if (e->opt1 == 0)
-			draw_mandelbrot(e);
-		if (e->opt1 == 1)
-			draw_burning_ship(e);
-	}
+		draw_option(e);
 	return (0);
 }

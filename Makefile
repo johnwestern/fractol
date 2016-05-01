@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/05/01 18:20:46 by jdavin           ###   ########.fr        #
+#    Updated: 2016/05/01 22:26:59 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_DIR = .src/
 SRC_FILES = main.c \
 	    	display_strings.c \
 	    	hook.c \
+	    	hook2.c \
 	    	draw_mandelbrot.c \
 	    	draw_burning_ship.c \
 	    	set_color.c
