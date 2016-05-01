@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 13:39:50 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 16:36:51 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void		display_str2(t_data *e)
 				"Press [H] to hide this");
 		}
 		else
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0x00FF00, \
-				"Press [R] to explore");
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0x00FF00, \
+				"Press [R] if you are ready to explore");
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
 			"Press [Q] / [A] auto [zoom & iter]");
 	}
@@ -52,7 +52,7 @@ void			display_str(t_data *e)
 	}
 	display_str2(e);
 	if (e->start == 0)
-		mlx_string_put(e->mlx, e->win, (WDH / 20), -10 + (HGHT / 2), \
+		mlx_string_put(e->mlx, e->win, (WDH / 10), -10 + (HGHT / 2), \
 		0xFFFFFF, "-- MANDELBROT --");
 }
 

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 14:54:59 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 17:57:03 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		setrgb(t_color *color, char b, char g, char r)
 
 static void		enenced_start_color(int i, t_data *e, t_flcl *f)
 {
-	f->a =  0.1 + i / 60;
+	f->a =  0.1 + i / 20;
 	setrgb(&e->color, 0, 0, f->a * 255);
 }
 
@@ -45,10 +45,10 @@ void			set_i_color(int i, t_data *e)
 	else if (i >= 180 && i < 240)
 		setrgb(&e->color, f.c * 255, (f.b + f.c) * 255, (f.a + f.c) * 255);
 	else if (i >= 240 && i < 320)
-		setrgb(&e->color, (f.b + f.c) * 255, f.c * 255, (f.a + f.c) * 255);
+		setrgb(&e->color, 0, f.c * 255, (f.a + f.c) * 255);
 	else if (i >= 320 && i < 360)
-		setrgb(&e->color, (f.a + f.c) * 255, 0, (f.b + f.c) * 255);
+		setrgb(&e->color, 0, 0, (f.a - f.c) * 255);
 	else if (i >= 360 && i < 410)
-		setrgb(&e->color, (f.a + f.c) * 255, (f.a + f.c) * 255, (f.a + f.c) * 255);
+		setrgb(&e->color, 0, 0, 13 + 0.95 * (f.a + f.c) * 255);
 }
 

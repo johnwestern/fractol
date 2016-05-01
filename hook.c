@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 15:03:18 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 19:00:30 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int				mouse_hook(int but, int x, int y, t_data *e)
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
 			e->zoom /= 1.05;
 		}
-		draw_mandelbrot(e);
+		if (e->opt1 == 0)
+			draw_mandelbrot(e);
+		if (e->opt1 == 1)
+			draw_burning_ship(e);
 	}
 	return (0);
 }
@@ -107,6 +110,11 @@ int				key_hook(int key, t_data *e)
 	if (key == 126 || key == 125 || key == 123 || key == 124)
 		arr_move(key, e);
 	if (e->start == 1)
-		draw_mandelbrot(e);
+	{
+		if (e->opt1 == 0)
+			draw_mandelbrot(e);
+		if (e->opt1 == 1)
+			draw_burning_ship(e);
+	}
 	return (0);
 }

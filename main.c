@@ -6,30 +6,42 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 15:18:03 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 18:59:20 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			init(t_data *e)
+
+static    void            option1(t_data *e)
 {
-	e->zoom = 0.80;
-	e->offset_x = -1;
-	e->offset_y = 0;
-	e->mouse_x = 0;
-	e->mouse_y = 0;
-	e->mitr = 360;
-	e->ato = 0;
-	e->hud = 1;
-	e->start = 0;
+    if (e->opt1 == 0)
+    {
+        draw_mandelbrot(e);
+        mlx_hook(e->win, 2, 3, key_hook, e);
+        mlx_mouse_hook(e->win, mouse_hook, e);
+    }
+    else if (e->opt1 == 1)
+    {
+        draw_burning_ship(e);
+        mlx_hook(e->win, 2, 3, key_hook, e);
+        mlx_mouse_hook(e->win, mouse_hook, e);
+    }
+    else
+        put_usage_error("fractol");
+}
+
+void			init1(t_data *e, char *opt)
+{
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
 	e->img = mlx_new_image(e->mlx, WDH, HGHT);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
-	draw_mandelbrot(e);
-	mlx_hook(e->win, 2, 3, key_hook, e);
-	mlx_mouse_hook(e->win, mouse_hook, e);
+	if (ft_strcmp(opt, "mandelbrot") == 0)
+		e->opt1 = 0;
+	if (ft_strcmp(opt, "burningship") == 0)
+		e->opt1 = 1;
+	option1(e);
 	mlx_loop(e->mlx);
 }
 
@@ -37,9 +49,19 @@ int				main(int ac, char **av)
 {
 	t_data		e;
 
-	if (ac == 1)
-		init(&e);
+	e.ato = 0;
+	e.hud = 1;
+	e.start = 0;
+	if (ac == 2)
+		init1(&e, av[1]);
 	else
 		put_usage_error(av[0]);
 	return (0);
 }
+
+	/*e->zoom = 0.80;
+	e->offset_x = -1;
+	e->offset_y = 0;
+	e->mouse_x = 0;
+	e->mouse_y = 0;
+	e->mitr = 360;*/

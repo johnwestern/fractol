@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 15:08:12 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/01 18:45:12 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH 1600
-# define HGHT 900
+# define WDH (1280 * 1.5)
+# define HGHT (720 * 1.5)
 # define GREEN 0x25FF50
 
 # include <stdlib.h>
@@ -52,6 +52,8 @@ typedef struct		s_data
 	int				sizeline;
 	int				endian;
 	int				mitr;
+	int				opt1;
+	int				opt2;
 	int				ato;
 	int 			hud;
 	int				start;
@@ -71,6 +73,7 @@ void				put_usage_error(char *av);
 void				put_malloc_error(void);
 void				init(t_data *e);
 void				draw_mandelbrot(t_data *e);
+void				draw_burning_ship(t_data *e);
 void				set_i_color(int i, t_data *e);
 void				display_str(t_data *e);
 
