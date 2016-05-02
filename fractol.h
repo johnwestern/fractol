@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 15:10:30 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 16:56:33 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH (1280 * 1.25)
-# define HGHT (720 * 1.25)
+# define WDH (1280)
+# define HGHT (720)
 # define GREEN 0x25FF50
 
 # include <stdlib.h>
@@ -30,8 +30,8 @@ typedef union		u_color
 
 typedef struct		s_cplx
 {
-	float			x;
-	float			y;
+	double			x;
+	double			y;
 }					t_cplx;
 
 typedef struct 		s_flcl
@@ -57,11 +57,11 @@ typedef struct		s_data
 	int				ato;
 	int 			hud;
 	int				start;
-	float			offset_x;
-	float			mouse_x;
-	float			offset_y;
-	float			mouse_y;
-	float			zoom;
+	double			offset_x;
+	double			mouse_x;
+	double			offset_y;
+	double			mouse_y;
+	double			zoom;
 	char			*data;
 	t_color			color;
 }					t_data;

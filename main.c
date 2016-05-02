@@ -6,14 +6,14 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 15:13:42 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 16:49:50 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 
-static    void            option1(t_data *e)
+static void			option1(t_data *e)
 {
 	e->mouse_x = 0;
 	e->mouse_y = 0;
@@ -40,7 +40,7 @@ static    void            option1(t_data *e)
 	mlx_mouse_hook(e->win, mouse_hook, e);
 }
 
-void			init1(t_data *e, char *opt)
+void				init1(t_data *e, char *opt)
 {
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
@@ -58,9 +58,9 @@ void			init1(t_data *e, char *opt)
 	mlx_loop(e->mlx);
 }
 
-int				main(int ac, char **av)
+int					main(int ac, char **av)
 {
-	t_data		e;
+	auto t_data	e;
 
 	e.ato = 0;
 	e.hud = 1;

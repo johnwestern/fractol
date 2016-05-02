@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 12:05:51 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 16:35:30 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void		set_pixel(int x, int y, t_data *e)
 
 static int			iter(int maxiter, t_cplx c)
 {
-	t_cplx			tmp;
+	register t_cplx	tmp;
 	int				i;
-	float			x;
+	double			x;
 
 	i = 0;
 	tmp.x = 0;
@@ -47,7 +47,7 @@ void				draw_mandelbrot(t_data *e)
 	int				i;
 	int				x;
 	int				y;
-	t_cplx			c;
+	register t_cplx	c;
 
 	y = 0;
 	while (y < HGHT)

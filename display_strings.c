@@ -6,13 +6,22 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 15:12:20 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 16:06:54 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 static void		display_str2(t_data *e)
+{
+	mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "Zoom x");
+	if (e->zoom > 2000000000)
+		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, "(2x10^9)++");
+	else
+		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
+}
+
+static void		display_str1(t_data *e)
 {
 	if (e->hud == 1)
 	{
@@ -41,8 +50,7 @@ void			display_str(t_data *e)
 {
 	if (e->start == 1)
 	{
-		mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "Zoom x");
-		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
+		display_str2(e);
 		mlx_string_put(e->mlx, e->win, 20, 30, 0xFFFFFF, "Iter =");
 		mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->mitr));
 		if (e->mitr <= 390 && e->ato == 1)
@@ -50,7 +58,7 @@ void			display_str(t_data *e)
 		else if (e->mitr > 390)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0xF80000, "Max");
 	}
-	display_str2(e);
+	display_str1(e);
 	if (e->start == 0)
 	{
 		if (e->opt1 == 0)
