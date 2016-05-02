@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 16:06:54 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 17:41:34 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void			display_str(t_data *e)
 		display_str2(e);
 		mlx_string_put(e->mlx, e->win, 20, 30, 0xFFFFFF, "Iter =");
 		mlx_string_put(e->mlx, e->win, 90, 30, 0xFFFFFF, ft_itoa(e->mitr));
-		if (e->mitr <= 390 && e->ato == 1)
+		if (e->mitr <= 594 && e->ato == 1)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0x00FF00, "Auto");
-		else if (e->mitr > 390)
+		else if (e->mitr > 594)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0xF80000, "Max");
 	}
 	display_str1(e);

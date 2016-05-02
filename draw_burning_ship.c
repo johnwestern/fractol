@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 18:17:05 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 15:40:42 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 17:41:45 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				draw_burning_ship(t_data *e)
 			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
 			e->mouse_y;
 			i = iter(e->mitr, c);
-			set_i_color(i % 400, e);
+			set_i_color(i % 600, e);
 			set_pixel(x, y, e);
 			x++;
 		}

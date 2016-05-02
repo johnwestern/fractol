@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 15:11:11 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 17:40:35 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		hud_switch(t_data *e)
 
 void		man_iter(int key, t_data *e)
 {
-	if (key == 24 && e->mitr <= 390)
+	if (key == 24 && e->mitr <= 594)
 		e->mitr += 5;
 	if (key == 27 && e->mitr >= 35)
 		e->mitr -= 5;

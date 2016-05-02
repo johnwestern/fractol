@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 14:58:06 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 17:23:23 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,21 @@ static void		auto_iter(t_data *e)
 {
 	e->ato = 1;
 	if (e->zoom > 1 && e->zoom <= 100)
-		e->mitr = 60 + 60 * (e->zoom / 100);
+		e->mitr = 100 + 100 * (e->zoom / 100);
 	if (e->zoom > 100 && e->zoom <= 1000)
-		e->mitr = 120 + 60 * (e->zoom / 1000);
+		e->mitr = 200 + 100 * (e->zoom / 1000);
 	if (e->zoom > 1000 && e->zoom <= 5000)
-		e->mitr = 180 + 60 * (e->zoom / 5000);
+		e->mitr = 300 + 100 * (e->zoom / 5000);
 	if (e->zoom > 5000 && e->zoom <= 10000)
-		e->mitr = 240 + 60 * (e->zoom / 10000);
+		e->mitr = 400 + 100 * (e->zoom / 10000);
 	if (e->zoom > 10000 && e->zoom <= 30000)
-		e->mitr = 300 + 60 * (e->zoom / 30000);
-	if (e->zoom > 20000 && e->zoom <= 100000)
-		e->mitr = 360 + 35 * (e->zoom / 100000);
-	if (e->zoom > 100000)
-		e->mitr = 395;
+		e->mitr = 300 + 100 * (e->zoom / 30000);
+	if (e->zoom > 30000 && e->zoom <= 100000)
+		e->mitr = 400 + 100 * (e->zoom / 100000);
+	if (e->zoom > 100000 && e->zoom > 10000000)
+		e->mitr = 500 + 99 * (e->zoom / 10000000);
+	if (e->zoom > 10000000)
+		e->mitr = 599;
 }
 
 static void		reset_val(t_data *e)
@@ -58,7 +60,7 @@ static void		reset_val(t_data *e)
 	e->mouse_x = 0;
 	e->ato = 0;
 	e->hud = 0;
-	e->mitr = 60;
+	e->mitr = 100;
 	e->start = 1;
 	e->zoom = 1;
 	reset_offset(e);
