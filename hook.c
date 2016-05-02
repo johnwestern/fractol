@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 18:27:20 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 19:48:00 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ static void		auto_iter(t_data *e)
 {
 	e->ato = 1;
 	if (e->zoom > 1 && e->zoom <= 2000)
-		e->mitr = 100 + 50 * (e->zoom / 2000);
+		e->mitr = 150 + 50 * (e->zoom / 2000);
 	if (e->zoom > 2000 && e->zoom <= 10000)
-		e->mitr = 150 + 100 * (e->zoom / 10000);
-	if (e->zoom > 10000 && e->zoom <= 30000)
-		e->mitr = 250 + 100 * (e->zoom / 30000);
-	if (e->zoom > 30000 && e->zoom <= 100000)
-		e->mitr = 350 + 150 * (e->zoom / 100000);
-	if (e->zoom > 100000 && e->zoom <= 10000000)
-		e->mitr = 500 + 99 * (e->zoom / 10000000);
-	if (e->zoom > 10000000)
+		e->mitr = 200 + 50 * (e->zoom / 10000);
+	if (e->zoom > 10000 && e->zoom <= 300000)
+		e->mitr = 250 + 100 * (e->zoom / 300000);
+	if (e->zoom > 300000 && e->zoom <= 10000000)
+		e->mitr = 350 + 100 * (e->zoom / 10000000);
+	if (e->zoom > 10000000 && e->zoom <= 100000000)
+		e->mitr = 450 + 149 * (e->zoom / 100000000);
+	if (e->zoom > 100000000)
 		e->mitr = 599;
 }
 
@@ -56,7 +56,7 @@ static void		reset_val(t_data *e)
 	e->mouse_x = 0;
 	e->ato = 0;
 	e->hud = 0;
-	e->mitr = 100;
+	e->mitr = 150;
 	e->start = 1;
 	e->zoom = 1;
 	reset_offset(e);
