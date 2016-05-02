@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 22:06:58 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 15:12:20 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			display_str(t_data *e)
 			mlx_string_put(e->mlx, e->win, (WDH / 4), (HGHT / 6), \
 			0xFFFFFF, "-- Burning Ship --");
 		if (e->opt1 == 2)
-			mlx_string_put(e->mlx, e->win, (WDH / 3), (HGHT / 3), \
+			mlx_string_put(e->mlx, e->win, (WDH / 10), (HGHT / 2), \
 			0xFFFFFF, "-- Julia --");
 	}
 }

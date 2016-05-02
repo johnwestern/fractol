@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 22:27:39 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 14:58:06 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int				mouse_hook(int but, int x, int y, t_data *e)
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
 			e->zoom /= 1.05;
 		}
-		if (e->opt1 == 0)
-			draw_mandelbrot(e);
-		if (e->opt1 == 1)
-			draw_burning_ship(e);
+		draw_option(e);
 	}
 	return (0);
 }
@@ -64,16 +61,7 @@ static void		reset_val(t_data *e)
 	e->mitr = 60;
 	e->start = 1;
 	e->zoom = 1;
-	if (e->opt1 == 0)
-	{
-		e->offset_y = 0;
-		e->offset_x = -0.5;
-	}
-	if (e->opt1 == 1)
-	{
-		e->offset_y = 0;
-		e->offset_x = -1;
-	}
+	reset_offset(e);
 }
 
 static void		arr_move(int key, t_data *e)

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 22:33:49 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 15:11:11 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		draw_option(t_data *e)
 	if (e->opt1 == 1)
 		draw_burning_ship(e);
 	if (e->opt1 == 2)
-		draw_mandelbrot(e);
+			draw_julia(e);
 }
 
 void		hud_switch(t_data *e)
@@ -49,6 +49,11 @@ void		reset_offset(t_data *e)
 	if (e->opt1 == 1)
 	{
 		e->offset_y = 0;
-		e->offset_x = -2;
+		e->offset_x = -1;
+	}
+	if (e->opt1 == 2)
+	{
+		e->offset_y = 0;
+		e->offset_x = -1;
 	}
 }

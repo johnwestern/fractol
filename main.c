@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/01 21:59:09 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 15:13:42 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,29 @@
 
 static    void            option1(t_data *e)
 {
-    if (e->opt1 == 0)
+	e->mouse_x = 0;
+	e->mouse_y = 0;
+	e->mitr = 360;
+    if (e->opt1 == 0  && (e->zoom = 0.80))
     {
-    	e->zoom = 0.80;
 		e->offset_x = -1;
 		e->offset_y = 0;
-		e->mouse_x = 0;
-		e->mouse_y = 0;
-		e->mitr = 360;
         draw_mandelbrot(e);
-        mlx_hook(e->win, 2, 3, key_hook, e);
-        mlx_mouse_hook(e->win, mouse_hook, e);
     }
-    else if (e->opt1 == 1)
+    else if (e->opt1 == 1 && (e->zoom = 38.832687))
     {
-    	e->zoom = 38.832687;
 		e->offset_x = -1.644804;
 		e->offset_y = -0.016320;
-		e->mouse_x = 0;
-		e->mouse_y = 0;
-		e->mitr = 360;
         draw_burning_ship(e);
-        mlx_hook(e->win, 2, 3, key_hook, e);
-        mlx_mouse_hook(e->win, mouse_hook, e);
     }
-    else
-        put_usage_error("fractol");
+    else if (e->opt1 == 2 && (e->zoom = 0.8))
+    {
+		e->offset_x = -1;
+		e->offset_y = 0;
+        draw_mandelbrot(e);
+    }
+	mlx_hook(e->win, 2, 3, key_hook, e);
+	mlx_mouse_hook(e->win, mouse_hook, e);
 }
 
 void			init1(t_data *e, char *opt)
@@ -51,8 +48,12 @@ void			init1(t_data *e, char *opt)
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
 	if (ft_strcmp(opt, "mandelbrot") == 0)
 		e->opt1 = 0;
-	if (ft_strcmp(opt, "burningship") == 0)
+	else if (ft_strcmp(opt, "burningship") == 0)
 		e->opt1 = 1;
+	else if (ft_strcmp(opt, "julia") == 0)
+		e->opt1 = 2;
+	else
+		put_usage_error("fractol");
 	option1(e);
 	mlx_loop(e->mlx);
 }
