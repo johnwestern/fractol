@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 17:25:04 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/02 18:11:51 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void			option1(t_data *e)
 {
 	e->mouse_x = 0;
 	e->mouse_y = 0;
-	e->mitr = 599;
+	e->mitr = 400;
     if (e->opt1 == 0  && (e->zoom = 0.80))
     {
 		e->offset_x = -1;
