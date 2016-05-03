@@ -6,19 +6,23 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 18:17:05 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 17:41:45 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 17:27:44 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void		set_pixel(int x, int y, t_data *e)
+static void			set_pixel(int x, int y, t_data *e, int i)
 {
-	int		octet;
-	int		pos;
+	int				octet;
+	int				pos;
 
 	octet = e->sizeline / WDH;
 	pos = x * octet + y * e->sizeline;
+	if (e->cop == 0)
+		set_eclips_color(i, e);
+	if (e->cop == 1)
+		set_bw_color(i, e);
 	if (ft_memcmp(e->data + pos, &e->color.color, octet) != 0)
 		ft_memcpy(e->data + pos, &e->color.color, octet);
 }
@@ -60,8 +64,7 @@ void				draw_burning_ship(t_data *e)
 			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
 			e->mouse_y;
 			i = iter(e->mitr, c);
-			set_i_color(i % 600, e);
-			set_pixel(x, y, e);
+			set_pixel(x, y, e, i);
 			x++;
 		}
 		y++;

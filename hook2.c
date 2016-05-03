@@ -6,11 +6,25 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 17:40:35 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 17:35:17 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void		change_color_set(t_data *e)
+{
+	if (e->cop == 0)
+	{
+		e->cop = 1;
+		draw_option(e);
+	}
+	else
+	{
+		e->cop = 0;
+		draw_option(e);
+	}
+}
 
 void		draw_option(t_data *e)
 {
@@ -19,7 +33,7 @@ void		draw_option(t_data *e)
 	if (e->opt1 == 1)
 		draw_burning_ship(e);
 	if (e->opt1 == 2)
-			draw_julia(e);
+		draw_julia(e);
 }
 
 void		hud_switch(t_data *e)

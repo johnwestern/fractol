@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 19:48:00 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 17:21:15 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		auto_iter(t_data *e)
 {
 	e->ato = 1;
 	if (e->zoom > 1 && e->zoom <= 2000)
-		e->mitr = 150 + 50 * (e->zoom / 2000);
+		e->mitr = 100 + 100 * (e->zoom / 2000);
 	if (e->zoom > 2000 && e->zoom <= 10000)
 		e->mitr = 200 + 50 * (e->zoom / 10000);
 	if (e->zoom > 10000 && e->zoom <= 300000)
@@ -56,7 +56,7 @@ static void		reset_val(t_data *e)
 	e->mouse_x = 0;
 	e->ato = 0;
 	e->hud = 0;
-	e->mitr = 150;
+	e->mitr = 100;
 	e->start = 1;
 	e->zoom = 1;
 	reset_offset(e);
@@ -64,14 +64,17 @@ static void		reset_val(t_data *e)
 
 static void		arr_move(int key, t_data *e)
 {
-	if (key == 126)
-		e->offset_y -= 0.05 * 1 / e->zoom;
-	if (key == 125)
-		e->offset_y += 0.05 * 1 / e->zoom;
-	if (key == 123)
-		e->offset_x -= 0.075 * 1 / e->zoom;
-	if (key == 124)
-		e->offset_x += 0.075 * 1 / e->zoom;
+	if (e->start == 1)
+	{
+		if (key == 126)
+			e->offset_y -= 0.05 * 1 / e->zoom;
+		if (key == 125)
+			e->offset_y += 0.05 * 1 / e->zoom;
+		if (key == 123)
+			e->offset_x -= 0.075 * 1 / e->zoom;
+		if (key == 124)
+			e->offset_x += 0.075 * 1 / e->zoom;
+	}
 }
 
 int				key_hook(int key, t_data *e)
@@ -80,6 +83,8 @@ int				key_hook(int key, t_data *e)
 		exit(0);
 	if (key == 15)
 		reset_val(e);
+	if (key == 8)
+		change_color_set(e);
 	if (key == 12 && (e->zoom *= 1.05))
 		auto_iter(e);
 	if (key == 4)

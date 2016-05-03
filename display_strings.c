@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 17:41:34 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 17:34:57 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ static void		display_str2(t_data *e)
 		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, "(2x10^9)++");
 	else
 		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
+}
+
+static void		color_choose(t_data *e)
+{
+	mlx_string_put(e->mlx, e->win, 20, 10, 0xF6F6F6, \
+		"Press [C] to switch color set");
+	mlx_string_put(e->mlx, e->win, 65, 30, 0xF6F6F6, \
+		"Blue Eclips");
+	mlx_string_put(e->mlx, e->win, 65, 50, 0xF6F6F6, \
+		"Black & White");
+	mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, \
+		"Press [C] to switch color set");
+	if (e->cop == 0)
+		mlx_string_put(e->mlx, e->win, 25, 30, 0xFFFFFF, "- >");
+	if (e->cop == 1)
+		mlx_string_put(e->mlx, e->win, 25, 50, 0xFFFFFF, "- >");
 }
 
 static void		display_str1(t_data *e)
@@ -37,8 +53,11 @@ static void		display_str1(t_data *e)
 				"Press [H] to hide this");
 		}
 		else
+		{
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0x00FF00, \
 				"Press [R] if you are ready to explore");
+			color_choose(e);
+		}
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
 			"Press [Q] / [A] auto [zoom & iter]");
 	}
@@ -80,6 +99,7 @@ void			put_usage_error(char *av)
 	ft_putendl(" <fractal_name> (mandelbrot, bunrningship, Julia)");
 	ft_putstr("Usage2 : ");
 	ft_putstr(av);
-	ft_putendl(" <fractal_name> <fractal_name> (mandelbrot, bunrningship, Julia)");
+	ft_putendl(" <fractal_name> <fractal_name> \
+		(mandelbrot, bunrningship, Julia)");
 	exit(0);
 }

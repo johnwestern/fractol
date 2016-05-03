@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 12:58:36 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 17:20:12 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct		s_data
 	int				ato;
 	int 			hud;
 	int				start;
+	int 			cop;
 	double			offset_x;
 	double			mouse_x;
 	double			offset_y;
@@ -75,11 +76,13 @@ void				init(t_data *e);
 void				draw_mandelbrot(t_data *e);
 void				draw_burning_ship(t_data *e);
 void				draw_julia(t_data *e);
-void				set_i_color(int i, t_data *e);
+void				set_eclips_color(int i, t_data *e);
+void				set_bw_color(int i, t_data *e);
 void				display_str(t_data *e);
 void				man_iter(int key, t_data *e);
 void				draw_option(t_data *e);
 void				hud_switch(t_data *e);
+void				change_color_set(t_data *e);
 void				reset_offset(t_data *e);
 
 #endif

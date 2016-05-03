@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/05/02 15:10:47 by jdavin           ###   ########.fr        #
+#    Updated: 2016/05/03 15:30:12 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC_FILES = main.c \
 	    	draw_mandelbrot.c \
 	    	draw_burning_ship.c \
 	    	draw_julia.c \
-	    	set_color.c
+	    	set_color.c \
+	    	set_color2.c
 
 O_FILES = $(SRC_FILES:.c=.o)
 
