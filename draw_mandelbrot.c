@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/02 17:23:50 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 01:52:35 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				draw_mandelbrot(t_data *e)
 			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
 			e->mouse_y;
 			i = iter(e->mitr, c);
-			set_i_color(i % 600, e);
+			set_i_color(i, e);
 			set_pixel(x, y, e);
 			x++;
 		}

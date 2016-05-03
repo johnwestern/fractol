@@ -27,7 +27,7 @@ SRC_FILES = main.c \
 
 O_FILES = $(SRC_FILES:.c=.o)
 
-CC = clang
+CC = gcc
 
 CC_FLAGS = -Wall -Werror -Wextra -lm -O3 -Ofast
 
