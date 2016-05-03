@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 15:09:54 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 17:33:31 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 20:44:37 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static int			iter(int maxiter, t_cplx c)
 	float			x;
 
 	i = 0;
-	tmp.x = 0;
-	tmp.y = 0;
+	tmp.x = 0.285;
+	tmp.y = 0.01;
 	while (i < maxiter && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;

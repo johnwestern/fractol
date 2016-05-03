@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 17:21:15 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/03 18:42:39 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int				mouse_hook(int but, int x, int y, t_data *e)
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom *= 1.05;
+			e->zoom *= 1.1;
 		}
 		if (x < WDH && x > 0 && y < HGHT && y > 0 && (but == 2 || but == 5))
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom /= 1.05;
+			e->zoom /= 1.1;
 		}
 		draw_option(e);
 	}
@@ -85,12 +85,12 @@ int				key_hook(int key, t_data *e)
 		reset_val(e);
 	if (key == 8)
 		change_color_set(e);
-	if (key == 12 && (e->zoom *= 1.05))
+	if (key == 12 && (e->zoom *= 1.1))
 		auto_iter(e);
 	if (key == 4)
 		hud_switch(e);
 	if (key == 0)
-		e->zoom /= 1.05;
+		e->zoom /= 1.1;
 	if (key == 24 || (key == 27))
 		man_iter(key, e);
 	if (key == 126 || key == 125 || key == 123 || key == 124)
