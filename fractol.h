@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 22:26:38 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:49:35 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # define WDH (1600)
 # define HGHT (880)
-
-# define MN 6
-# define PMM (1L<<6)
 
 # include <stdlib.h>
 # include <math.h>
@@ -62,6 +59,8 @@ typedef struct		s_data
 	int 			cop;
 	double			offset_x;
 	double			mouse_x;
+	float			motion_x;
+	float			motion_y;
 	double			offset_y;
 	double			mouse_y;
 	double			zoom;

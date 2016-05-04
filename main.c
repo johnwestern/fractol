@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 22:27:01 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:51:39 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ static void			option1(t_data *e)
 {
 	e->mouse_x = 0;
 	e->mouse_y = 0;
+	e->offset_x = -1;
+	e->offset_y = 0;
 	e->cop = 0;
 	e->mitr = 200;
 	if (e->opt1 == 0 && (e->zoom = 0.8))
-	{
-		e->offset_x = -1;
-		e->offset_y = 0;
 		draw_mandelbrot(e);
-	}
 	else if (e->opt1 == 1 && (e->zoom = 38.832687))
 	{
 		e->offset_x = -1.644804;
@@ -32,15 +30,14 @@ static void			option1(t_data *e)
 	}
 	else if (e->opt1 == 2 && (e->zoom = 0.8))
 	{
-		e->offset_x = -1;
-		e->offset_y = 0;
+		e->motion_x = 0;
+		e->motion_y = 0;
 		draw_julia(e);
 	}
 	mlx_hook(e->win, 2, 3, key_hook, e);
-	if (e->opt1 != 2)
-		mlx_mouse_hook(e->win, mouse_hook, e);
-	else
-		mlx_hook(e->win, MN, PMM, motion_hook, e);
+	mlx_mouse_hook(e->win, mouse_hook, e);
+	if (e->opt1 == 2)
+		mlx_hook(e->win, 6, 1L<<6, motion_hook, e);
 	
 }
 

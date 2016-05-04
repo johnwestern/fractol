@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 15:09:54 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 22:07:28 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:59:05 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 	double			x;
 
 	i = 0;
-	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) - e->offset_x - 1;
-	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) - e->offset_y;
+	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + 1 + \
+	e->mouse_x;
+	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + e->mouse_x;
 	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
@@ -59,8 +60,8 @@ void				draw_julia(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = 0.285 + e->mouse_x;
-			c.y = 0.01 + e->mouse_y;
+			c.x = -0.73125 + e->motion_x;
+			c.y = 0.110795 + e->motion_y;
 			i = iter(e, c, x, y);
 			set_pixel(x, y, e, i);
 			x++;

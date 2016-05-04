@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 22:25:51 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 23:09:29 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int				mouse_hook(int but, int x, int y, t_data *e)
 {
-	if (e->start == 1 && e->opt1 != 2)
+	if (e->start == 1)
 	{
-		if (x < WDH && x > 0 && y < HGHT && y > 0)
+		if (x < WDH && x > 0 && y < HGHT && y > 0 && but == 1)
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
 			e->zoom *= 1.1;
 		}
-		if (x < WDH && x > 0 && y < HGHT && y > 0)
+		if (x < WDH && x > 0 && y < HGHT && y > 0 && but == 2)
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
