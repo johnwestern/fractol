@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:50:33 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 01:28:45 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int					motion_hook(int x, int y, t_data *e);
 void				put_usage_error(char *av);
 void				put_malloc_error(void);
 void				init(t_data *e);
+void				option1(t_data *e);
 void				draw_mandelbrot(t_data *e);
 void				draw_burning_ship(t_data *e);
 void				draw_julia(t_data *e);

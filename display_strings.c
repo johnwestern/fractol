@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:53:42 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 01:18:40 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		color_choose(t_data *e)
 	mlx_string_put(e->mlx, e->win, 20, 10, 0xF6F6F6, \
 		"Press [C] to switch color set");
 	mlx_string_put(e->mlx, e->win, 65, 30, 0xF6F6F6, \
-		"Blue - Eclips");
+		"Eclips");
 	mlx_string_put(e->mlx, e->win, 65, 50, 0xF6F6F6, \
 		"Black & White");
 	mlx_string_put(e->mlx, e->win, 65, 70, 0xF6F6F6, \
@@ -37,7 +37,7 @@ static void		color_choose(t_data *e)
 		mlx_string_put(e->mlx, e->win, 25, 30, 0xFFFFFF, "- >");
 	if (e->cop == 1)
 		mlx_string_put(e->mlx, e->win, 25, 50, 0xFFFFFF, "- >");
-	if (e->cop == 3)
+	if (e->cop == 2)
 		mlx_string_put(e->mlx, e->win, 25, 70, 0xFFFFFF, "- >");
 }
 
@@ -93,6 +93,7 @@ void			display_str(t_data *e)
 		if (e->opt1 == 2 && WDH > 1200 && HGHT > 600)
 			mlx_string_put(e->mlx, e->win, (WDH - 400), (HGHT - 150), \
 			0xFFFFFF, "-- Julia --");
+		mlx_string_put(e->mlx, e->win, 1200, (HGHT - 35), 0xFFFFFF, "[<] change fractal [>]");
 	}
 }
 
