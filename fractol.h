@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 19:20:59 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 21:51:25 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH (1600 / 2)
-# define HGHT (880 / 2)
+# define WDH (1600)
+# define HGHT (880)
 # define GREEN 0x25FF50
 
 # include <stdlib.h>
@@ -69,7 +69,8 @@ typedef struct		s_data
 
 int					main(int ac, char **av);
 int					key_hook(int keycode, t_data *e);
-int					mouse_hook(int button, int x, int y, t_data *e);
+int					mouse_hook(int but, int x, int y, t_data *e);
+int					j_mouse_hook(int but, int x, int y, t_data *e);
 void				put_usage_error(char *av);
 void				put_malloc_error(void);
 void				init(t_data *e);
