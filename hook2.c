@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 17:35:17 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:20:39 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void		reset_offset(t_data *e)
 	if (e->opt1 == 1)
 	{
 		e->offset_y = 0;
-		e->offset_x = -1;
+		e->offset_x = -2;
 	}
 	if (e->opt1 == 2)
 	{
 		e->offset_y = 0;
-		e->offset_x = -1;
+		e->offset_x = 0;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 23:09:29 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 23:55:21 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void		reset_val(t_data *e)
 
 static void		arr_move(int key, t_data *e)
 {
-	if (e->start == 1)
+	if (e->start == 1 || e->opt1 == 2)
 	{
 		if (key == 126)
 			e->offset_y -= 0.05 * 1 / e->zoom;
@@ -95,7 +95,7 @@ int				key_hook(int key, t_data *e)
 		man_iter(key, e);
 	if (key == 126 || key == 125 || key == 123 || key == 124)
 		arr_move(key, e);
-	if (e->start == 1)
+	if (e->start == 1 || e->opt1 == 2)
 		draw_option(e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 22:51:39 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:03:42 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void			option1(t_data *e)
 	}
 	else if (e->opt1 == 2 && (e->zoom = 0.8))
 	{
+		e->offset_x = 0;
 		e->motion_x = 0;
 		e->motion_y = 0;
 		draw_julia(e);
@@ -38,7 +39,6 @@ static void			option1(t_data *e)
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	if (e->opt1 == 2)
 		mlx_hook(e->win, 6, 1L<<6, motion_hook, e);
-	
 }
 
 static void			init1(t_data *e, char *opt)
