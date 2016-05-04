@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 23:21:10 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:53:42 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ static void		color_choose(t_data *e)
 		"Blue - Eclips");
 	mlx_string_put(e->mlx, e->win, 65, 50, 0xF6F6F6, \
 		"Black & White");
+	mlx_string_put(e->mlx, e->win, 65, 70, 0xF6F6F6, \
+		"Hell");
 	mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, \
 		"Press [C] to switch color set");
 	if (e->cop == 0)
 		mlx_string_put(e->mlx, e->win, 25, 30, 0xFFFFFF, "- >");
 	if (e->cop == 1)
 		mlx_string_put(e->mlx, e->win, 25, 50, 0xFFFFFF, "- >");
+	if (e->cop == 3)
+		mlx_string_put(e->mlx, e->win, 25, 70, 0xFFFFFF, "- >");
 }
 
 static void		display_str1(t_data *e)

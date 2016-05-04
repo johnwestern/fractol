@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 17:33:51 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:52:43 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static void			set_pixel(int x, int y, t_data *e, int i)
 		set_eclips_color(i, e);
 	if (e->cop == 1)
 		set_bw_color(i, e);
+	if (e->cop == 2)
+		set_hell_color(i, e);
 	if (ft_memcmp(e->data + pos, &e->color.color, octet) != 0)
 		ft_memcpy(e->data + pos, &e->color.color, octet);
 }

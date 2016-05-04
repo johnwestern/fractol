@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:06:08 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:50:33 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void				draw_burning_ship(t_data *e);
 void				draw_julia(t_data *e);
 void				set_eclips_color(int i, t_data *e);
 void				set_bw_color(int i, t_data *e);
+void				set_hell_color(int i, t_data *e);
 void				display_str(t_data *e);
 void				man_iter(int key, t_data *e);
 void				draw_option(t_data *e);

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:20:39 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 00:52:12 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void		change_color_set(t_data *e)
 	if (e->cop == 0)
 	{
 		e->cop = 1;
+		draw_option(e);
+	}
+	else if (e->cop == 1)
+	{
+		e->cop = 2;
 		draw_option(e);
 	}
 	else
