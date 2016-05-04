@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 19:05:47 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 19:20:59 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH (1600)
-# define HGHT (880)
+# define WDH (1600 / 2)
+# define HGHT (880 / 2)
 # define GREEN 0x25FF50
 
 # include <stdlib.h>

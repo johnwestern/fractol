@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/03 17:41:50 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 13:20:26 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void		enhanced_start(int i, t_data *e, t_flcl *f)
 {
 	f->l = 0.5 * (i < e->mitr);
 	f->a = 1 - fabs(2 * f->l - 1);
-	f->b = f->a * (1.0 - fabs(fmod((i / 50.0), 2) - 1.0));
+	f->b = f->a * (1.0 - fabs(fmod((i / 55.0), 2) - 1.0));
 	f->c = f->l - 0.5 * f->a;
 	setrgb(&e->color, 0, 0, f->b * 255);
 }
