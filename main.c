@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 21:29:05 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:08:30 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,14 @@ static void			option1(t_data *e)
 		e->offset_y = -0.016320;
 		draw_burning_ship(e);
 	}
-	else if (e->opt1 == 2 && (e->zoom = 1))
+	else if (e->opt1 == 2 && (e->zoom = 0.8))
 	{
-		e->offset_x = 0;
+		e->offset_x = -1;
 		e->offset_y = 0;
 		draw_julia(e);
 	}
 	mlx_hook(e->win, 2, 3, key_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
-	//mlx_hook(e->win, 6, 3, mouse_hook, e);
 }
 
 static void			init1(t_data *e, char *opt)

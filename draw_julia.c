@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 15:09:54 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 21:58:27 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:07:28 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 	double			x;
 
 	i = 0;
-	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + 1;
-	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y;
+	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) - e->offset_x - 1;
+	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) - e->offset_y;
 	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
