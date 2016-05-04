@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 23:12:10 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 23:21:10 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static void		color_choose(t_data *e)
 
 static void		display_str1(t_data *e)
 {
-	if (e->hud == 1)
+	if (e->hud == 1 && WDH > 1200 && HGHT > 600)
 	{
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
 			"Use [mouse & clic] to focus on a point");
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFFFFFF, \
 			"use arrows to move && use + | - to ajust iter");
-		if (e->start == 1)
+		if (e->start == 1 && WDH > 1200 && HGHT > 600)
 		{
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFF0000, \
 				"Press [R] to restart");
