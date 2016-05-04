@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 21:51:25 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:26:38 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # define WDH (1600)
 # define HGHT (880)
-# define GREEN 0x25FF50
+
+# define MN 6
+# define PMM (1L<<6)
 
 # include <stdlib.h>
 # include <math.h>
@@ -70,7 +72,7 @@ typedef struct		s_data
 int					main(int ac, char **av);
 int					key_hook(int keycode, t_data *e);
 int					mouse_hook(int but, int x, int y, t_data *e);
-int					j_mouse_hook(int but, int x, int y, t_data *e);
+int					motion_hook(int x, int y, t_data *e);
 void				put_usage_error(char *av);
 void				put_malloc_error(void);
 void				init(t_data *e);

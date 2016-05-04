@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/04 21:47:29 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/04 22:25:51 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int				mouse_hook(int but, int x, int y, t_data *e)
 		}
 		draw_option(e);
 	}
-	else if (e->start == 1)
-		j_mouse_hook(but, x, y, e);
 	return (0);
 }
 
