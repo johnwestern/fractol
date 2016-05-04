@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 01:28:33 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 01:46:27 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ static void		arr_move(int key, t_data *e)
 				e->opt1 = 2;
 			else
 				e->opt1 = 0;
-			option1(e);
 		}
+		option1(e);
 	}
 }
 
@@ -103,6 +103,12 @@ int				key_hook(int key, t_data *e)
 {
 	if (key == 53)
 		exit(0);
+	if (key == 11)
+	{
+		e->start = 0;
+		e->hud = 1;
+		option1(e);
+	}
 	if (key == 15)
 		reset_val(e);
 	if (key == 8)

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 01:18:40 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 01:42:23 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,16 @@ static void		display_str1(t_data *e)
 {
 	if (e->hud == 1 && WDH > 1200 && HGHT > 600)
 	{
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
 			"Use [mouse & clic] to focus on a point");
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFFFFFF, \
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
 			"use arrows to move && use + | - to ajust iter");
 		if (e->start == 1 && WDH > 1200 && HGHT > 600)
 		{
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFF0000, \
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0x00FF00, \
 				"Press [R] to restart");
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFF0000, \
+				"Press [B] to got to start menu");
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFFFFFF, \
 				"Press [H] to hide this");
 		}
@@ -62,7 +64,7 @@ static void		display_str1(t_data *e)
 				"Press [R] if you are ready to explore");
 			color_choose(e);
 		}
-		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
+		mlx_string_put(e->mlx, e->win, 20, (HGHT - 135), 0xFFFFFF, \
 			"Press [Q] / [A] auto [zoom & iter]");
 	}
 	else
