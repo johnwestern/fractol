@@ -6,15 +6,15 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 02:07:49 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 02:48:54 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WDH (1600)
-# define HGHT (880)
+# define WDH (1600 / 4)
+# define HGHT (880 / 4)
 
 # include <stdlib.h>
 # include <math.h>
