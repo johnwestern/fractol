@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 21:39:52 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 03:12:36 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 03:15:39 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		enhanced_start(int i, t_data *e, t_flcl *f)
 	if (i >= 0 && i < 50)
 		setrgb(&e->color, 0, 0, f->b * 255);
 	else if (i >= 50 && i < 100)
-		setrgb(&e->color, f->a * 255, f->a * 255 / 2, f->b * 255 / 4);
+		setrgb(&e->color, f->a * 255, f->a * 255 / 1.5, f->b * 255 / 50);
 
 }
 
