@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 15:25:13 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 03:23:29 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 03:25:19 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			set_bw_color(int i, t_data *e)
 	f.a = 1 - fabs(2 * f.l - 1);
 	f.b = f.a * (1.0 - fabs(fmod((i / 100.0), 2) - 1.0));
 	if (i >= 100 && i < 200)
-		setrgb(&e->color, f->b * 255, f->b * 255, f->b * 255);
+		setrgb(&e->color, f.b * 255, f.b * 255, f.b * 255);
 	else if (i >= 200 && i < 300)
-		setrgb(&e->color, f->b * 255, f->b * 255, f->b * 255);
+		setrgb(&e->color, f.b * 255, f.b * 255, f.b * 255);
 }
