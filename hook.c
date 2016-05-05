@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 01:46:27 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 02:04:55 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int				mouse_hook(int but, int x, int y, t_data *e)
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom *= 1.1;
+			e->zoom *= 1.15;
 		}
 		if (x < WDH && x > 0 && y < HGHT && y > 0 && but == 2)
 		{
 			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
 			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom /= 1.1;
+			e->zoom /= 1.15;
 		}
 		draw_option(e);
 	}
@@ -76,27 +76,7 @@ static void		arr_move(int key, t_data *e)
 			e->offset_x += 0.075 * 1 / e->zoom;
 	}
 	if (e->start == 0)
-	{
-		if (key == 123)
-		{
-			if (e->opt1 == 0)
-				e->opt1 = 2;
-			if (e->opt1 == 1)
-				e->opt1 = 0;
-			else
-				e->opt1 = 1;
-		}
-		if (key == 124)
-		{
-			if (e->opt1 == 0)
-				e->opt1 = 1;
-			else if (e->opt1 == 1)
-				e->opt1 = 2;
-			else
-				e->opt1 = 0;
-		}
-		option1(e);
-	}
+		fractal_switch(key, e);
 }
 
 int				key_hook(int key, t_data *e)
@@ -113,12 +93,12 @@ int				key_hook(int key, t_data *e)
 		reset_val(e);
 	if (key == 8)
 		change_color_set(e);
-	if (key == 12 && (e->zoom *= 1.1))
+	if (key == 12 && (e->zoom *= 1.15))
 		auto_iter(e);
+	if (key == 0)
+		e->zoom /= 1.15;
 	if (key == 4)
 		hud_switch(e);
-	if (key == 0)
-		e->zoom /= 1.1;
 	if (key == 24 || (key == 27))
 		man_iter(key, e);
 	if (key == 126 || key == 125 || key == 123 || key == 124)

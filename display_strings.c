@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 01:42:23 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 02:07:28 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void		display_str2(t_data *e)
 		mlx_string_put(e->mlx, e->win, 90, 10, 0xFFFFFF, ft_itoa(e->zoom));
 }
 
-static void		color_choose(t_data *e)
+static void		menu_choose(t_data *e)
 {
+	mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0x00FF00, \
+		"Press [R] if you are ready to explore");
 	mlx_string_put(e->mlx, e->win, 20, 10, 0xF6F6F6, \
 		"Press [C] to switch color set");
 	mlx_string_put(e->mlx, e->win, 65, 30, 0xF6F6F6, \
@@ -59,11 +61,7 @@ static void		display_str1(t_data *e)
 				"Press [H] to hide this");
 		}
 		else
-		{
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0x00FF00, \
-				"Press [R] if you are ready to explore");
-			color_choose(e);
-		}
+			menu_choose(e);
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 135), 0xFFFFFF, \
 			"Press [Q] / [A] auto [zoom & iter]");
 	}

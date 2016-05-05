@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 01:28:23 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 02:12:55 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void			option1(t_data *e)
 	e->mouse_y = 0;
 	e->offset_x = -1;
 	e->offset_y = 0;
-	e->cop = 0;
 	e->mitr = 200;
 	if (e->opt1 == 0 && (e->zoom = 0.8))
 		draw_mandelbrot(e);
@@ -66,6 +65,7 @@ int					main(int ac, char **av)
 	e.ato = 0;
 	e.hud = 1;
 	e.start = 0;
+	e.cop = 0;
 	if (ac == 2)
 		init1(&e, av[1]);
 	else
