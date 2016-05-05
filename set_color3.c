@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 00:46:17 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:56:48 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 02:28:02 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void			set_hell_color(int i, t_data *e)
 	f.b = f.a * (1.0 - fabs(fmod((i / 100.0), 2) - 1.0));
 	f.c = f.l - 0.5 * f.a;
 	if (i >= 50 && i < 100)
-		setrgb(&e->color, (f.b + f.c) * 255, (f.a + f.c) * 255, f.c * 255);
+		setrgb(&e->color, (f.a + f.c) * 255, (f.b + f.c) * 255, 0);
 	else if (i >= 100 && i < 200)
-		setrgb(&e->color, f.c * 255, (f.a + f.c) * 255, (f.b + f.c) * 255);
+		setrgb(&e->color, (f.a + f.c), (f.b + f.c), 0);
 	else if (i >= 200 && i < 300)
-		setrgb(&e->color, f.c * 255, (f.a + f.c) * 255, (f.b + f.c) * 255);
+		setrgb(&e->color, f.a * 255, (f.b + f.c) * 255, 0);
 }
