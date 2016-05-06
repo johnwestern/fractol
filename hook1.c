@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 21:35:37 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 02:18:30 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 17:38:12 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			motion_hook(int x, int y, t_data *e)
 {
-	if (x < WDH && x > 0 && y < HGHT && y > 0 && e->start == 0 && e->opt1 == 2)
+	if (x < WDH && x > 0 && y < HGHT && y > 0 && e->start == 0)
 	{
 		e->motion_x = 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / \
 		e->zoom;

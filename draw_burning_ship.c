@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 18:17:05 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 18:34:47 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 18:05:50 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ static void			set_pixel(int x, int y, t_data *e, int i)
 		ft_memcpy(e->data + pos, &e->color.color, octet);
 }
 
-static int			iter(int maxiter, t_cplx c)
+static int			iter(t_data *e, t_cplx c)
 {
 	t_cplx			tmp;
 	int				i;
 	float			x;
 
 	i = 0;
-	tmp.x = 0;
-	tmp.y = 0;
-	while (i < maxiter && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
+	tmp.x = e->motion_y;
+	tmp.y = e->motion_y;
+	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
 		tmp.x = fabs(tmp.x * tmp.x - tmp.y * tmp.y + c.x);
@@ -65,7 +65,7 @@ void				draw_burning_ship(t_data *e)
 			e->mouse_x;
 			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
 			e->mouse_y;
-			i = iter(e->mitr, c);
+			i = iter(e, c);
 			set_pixel(x, y, e, i);
 			x++;
 		}
