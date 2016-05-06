@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 18:17:05 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 00:52:53 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/05 18:34:47 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static int			iter(int maxiter, t_cplx c)
 	while (i < maxiter && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
-		tmp.x = fabsl(tmp.x * tmp.x - tmp.y * tmp.y + c.x);
-		tmp.y = fabsl((2 * x * tmp.y) + c.y);
+		tmp.x = fabs(tmp.x * tmp.x - tmp.y * tmp.y + c.x);
+		tmp.y = fabs((2 * x * tmp.y) + c.y);
 		i++;
 	}
 	return (i);

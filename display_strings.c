@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 02:07:28 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 13:01:27 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void			display_str(t_data *e)
 		if (e->opt1 == 2 && WDH > 1200 && HGHT > 600)
 			mlx_string_put(e->mlx, e->win, (WDH - 400), (HGHT - 150), \
 			0xFFFFFF, "-- Julia --");
-		mlx_string_put(e->mlx, e->win, 1200, (HGHT - 35), 0xFFFFFF, "[<] change fractal [>]");
+		mlx_string_put(e->mlx, e->win, 1000, (HGHT - 35), 0xFFFFFF, "[<] change fractal [>]");
 	}
 }
 

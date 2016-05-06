@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 15:09:54 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/05 03:37:57 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 13:00:33 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void				draw_julia(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = -0.768750 + e->motion_x;
-			c.y = 0.053977 + e->motion_y;
+			c.x = -0.739453 + e->motion_x;
+			c.y = 0.081755 + e->motion_y;
 			i = iter(e, c, x, y);
 			set_pixel(x, y, e, i);
 			x++;
