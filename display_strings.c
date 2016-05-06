@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 13:01:27 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 15:49:56 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,13 @@ static void		display_str2(t_data *e)
 static void		menu_choose(t_data *e)
 {
 	mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0x00FF00, \
-		"Press [R] if you are ready to explore");
-	mlx_string_put(e->mlx, e->win, 20, 10, 0xF6F6F6, \
-		"Press [C] to switch color set");
-	mlx_string_put(e->mlx, e->win, 65, 30, 0xF6F6F6, \
-		"Eclips");
-	mlx_string_put(e->mlx, e->win, 65, 50, 0xF6F6F6, \
-		"Black & White");
-	mlx_string_put(e->mlx, e->win, 65, 70, 0xF6F6F6, \
-		"Hell");
-	mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, \
-		"Press [C] to switch color set");
+		"Press [Space] if you are ready to explore");
 	if (e->cop == 0)
-		mlx_string_put(e->mlx, e->win, 25, 30, 0xFFFFFF, "- >");
+		mlx_string_put(e->mlx, e->win, 20, 55, 0xFFFFFF, "-> Eclips");
 	if (e->cop == 1)
-		mlx_string_put(e->mlx, e->win, 25, 50, 0xFFFFFF, "- >");
+		mlx_string_put(e->mlx, e->win, 20, 55, 0xFFFFFF, "-> Black_&_White");
 	if (e->cop == 2)
-		mlx_string_put(e->mlx, e->win, 25, 70, 0xFFFFFF, "- >");
+		mlx_string_put(e->mlx, e->win, 20, 55, 0xFFFFFF, "-> Sober_Red");
 }
 
 static void		display_str1(t_data *e)
@@ -48,17 +38,17 @@ static void		display_str1(t_data *e)
 	if (e->hud == 1 && WDH > 1200 && HGHT > 600)
 	{
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 115), 0xFFFFFF, \
-			"Use [mouse & clic] to focus on a point");
+			"Use [mouse & clic] = focus on a point");
 		mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
-			"use arrows to move && use + | - to ajust iter");
+			"use arrows to move && use + | - = ajust iter");
 		if (e->start == 1 && WDH > 1200 && HGHT > 600)
 		{
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0x00FF00, \
-				"Press [R] to restart");
+				"Press [Space] = restart");
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xFF0000, \
-				"Press [B] to got to start menu");
+				"Press [B] = get back to start menu");
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFFFFFF, \
-				"Press [H] to hide this");
+				"Press [H] = hide this");
 		}
 		else
 			menu_choose(e);
@@ -85,15 +75,15 @@ void			display_str(t_data *e)
 	if (e->start == 0)
 	{
 		if (e->opt1 == 0)
-			mlx_string_put(e->mlx, e->win, (WDH / 10), -10 + (HGHT / 2), \
+			mlx_string_put(e->mlx, e->win, 20, 35, \
 			0xFFFFFF, "-- Mandelbrot --");
 		if (e->opt1 == 1)
-			mlx_string_put(e->mlx, e->win, (WDH / 4), (HGHT / 6), \
+			mlx_string_put(e->mlx, e->win, 20, 35, \
 			0xFFFFFF, "-- Burning Ship --");
 		if (e->opt1 == 2 && WDH > 1200 && HGHT > 600)
-			mlx_string_put(e->mlx, e->win, (WDH - 400), (HGHT - 150), \
+			mlx_string_put(e->mlx, e->win, 20, 35, \
 			0xFFFFFF, "-- Julia --");
-		mlx_string_put(e->mlx, e->win, 1000, (HGHT - 35), 0xFFFFFF, "[<] change fractal [>]");
+		mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "[<] change fractal [>]");
 	}
 }
 

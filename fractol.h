@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 12:59:46 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 15:01:44 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void				display_str(t_data *e);
 void				man_iter(int key, t_data *e);
 void				draw_option(t_data *e);
 void				hud_switch(t_data *e);
-void				change_color_set(t_data *e);
+void				change_color_set(t_data *e, int key);
 void				reset_offset(t_data *e);
 void				fractal_switch(int key, t_data *e);
 
