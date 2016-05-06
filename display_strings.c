@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 15:49:56 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 16:00:16 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,9 @@ void			display_str(t_data *e)
 
 void			put_usage_error(char *av)
 {
-	ft_putstr("Usage1 : ");
+	ft_putstr("Usage : ./");
 	ft_putstr(av);
-	ft_putendl(" <fractal_name> (mandelbrot, bunrningship, Julia)");
-	ft_putstr("Usage2 : ");
-	ft_putstr(av);
-	ft_putendl(" <fractal_name> <fractal_name> \
-		(mandelbrot, bunrningship, Julia)");
+	ft_putendl(" <fractalias>\n\
+	\nfractalias:\nm = mandelbrot\nb = burningship\nj = julia");
 	exit(0);
 }
