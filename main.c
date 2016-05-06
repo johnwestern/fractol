@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 16:02:30 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 16:05:27 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int					main(int ac, char **av)
 	if (ac == 2)
 		init1(&e, av[1]);
 	else
-		put_usage_error(av[0]);
+		put_usage_error("fractol");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 16:00:16 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/06 16:06:57 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ void			display_str(t_data *e)
 	{
 		if (e->opt1 == 0)
 			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-- Mandelbrot --");
+			0xFFFFFF, "-> Mandelbrot");
 		if (e->opt1 == 1)
 			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-- Burning Ship --");
+			0xFFFFFF, "-> Burning Ship");
 		if (e->opt1 == 2 && WDH > 1200 && HGHT > 600)
 			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-- Julia --");
+			0xFFFFFF, "-> Julia");
 		mlx_string_put(e->mlx, e->win, 20, 10, 0xFFFFFF, "[<] change fractal [>]");
 	}
 }
