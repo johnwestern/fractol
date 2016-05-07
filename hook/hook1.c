@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 17:45:20 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 22:25:26 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void		change_color_set(t_data *e, int key)
 {
 	if (key == 8)
 	{
-		if (e->cop == 0)
-			e->cop = 1;
-		else if (e->cop == 1)
-			e->cop = 2;
+		if (e->cop < 2)
+			e->cop += 1;
 		else
 			e->cop = 0;
 	}
@@ -50,6 +48,8 @@ void		draw_option(t_data *e)
 		draw_julia(e);
 	if (e->opt1 == 3)
 		draw_glynn(e);
+	if (e->opt1 == 4)
+		draw_newton(e);
 }
 
 void		hud_switch(t_data *e)
@@ -81,7 +81,7 @@ void		reset_offset(t_data *e)
 		e->offset_y = 0;
 		e->offset_x = -2;
 	}
-	if (e->opt1 == 2)
+	if (e->opt1 == 2 || e->opt1 == 3 || e->opt1 == 4)
 	{
 		e->offset_y = 0;
 		e->offset_x = 0;

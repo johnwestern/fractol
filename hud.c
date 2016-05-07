@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 18:30:06 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 23:21:05 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static void		menu_choose(t_data *e)
 		"Press [Space] to sart exploration");
 	if (e->cop == 0)
 		mlx_string_put(e->mlx, e->win, 20, 55, 0x0000FF, "   Eclips");
-	if (e->cop == 1)
+	else if (e->cop == 1)
 		mlx_string_put(e->mlx, e->win, 20, 55, 0xFFFFFF, "   Black_&_White");
-	if (e->cop == 2)
+	else if (e->cop == 2)
 		mlx_string_put(e->mlx, e->win, 20, 55, 0xFF0000, "   Sober_Red");
 }
 
@@ -57,6 +57,20 @@ static void		display_str1(t_data *e)
 		mlx_string_put(e->mlx, e->win, 10, (HGHT - 30), 0xFFFF00, "[H]");
 }
 
+static void		fractal_name(t_data *e)
+{
+	if (e->opt1 == 0)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Mandelbrot");
+	else if (e->opt1 == 1)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Burning Ship");
+	else if (e->opt1 == 2)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Julia");
+	else if (e->opt1 == 3)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Glynn");
+	else if (e->opt1 == 4)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Newton");
+}
+
 void			display_str(t_data *e)
 {
 	if (e->st == 1)
@@ -69,24 +83,13 @@ void			display_str(t_data *e)
 		else if (e->mitr > 594)
 			mlx_string_put(e->mlx, e->win, 125, 30, 0xF80000, "Max");
 	}
-	display_str1(e);
-	if (e->st == 0)
+	else if (e->st == 0)
 	{
-		if (e->opt1 == 0)
-			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-> Mandelbrot");
-		if (e->opt1 == 1)
-			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-> Burning Ship");
-		if (e->opt1 == 2)
-			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-> Julia");
-		if (e->opt1 == 3)
-			mlx_string_put(e->mlx, e->win, 20, 35, \
-			0xFFFFFF, "-> Glynn");
 		mlx_string_put(e->mlx, e->win, 20, 10, 0x00FF00, \
-			"[<] change fractal [>]");
+		"[<] change fractal [>]");
+		fractal_name(e);
 	}
+	display_str1(e);
 }
 
 void			put_usage_error(char *av)

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 18:29:48 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 20:51:58 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 static void			fract_init(t_data *e)
 {
 	if (e->opt1 == 0 && (e->zoom = 0.85))
+	{
+		e->offset_x = -0.75;
 		draw_mandelbrot(e);
+	}
 	else if (e->opt1 == 1 && (e->zoom = 38.832687))
 	{
 		e->offset_x = -1.644804;
@@ -23,15 +26,11 @@ static void			fract_init(t_data *e)
 		draw_burning_ship(e);
 	}
 	else if (e->opt1 == 2 && (e->zoom = 0.8))
-	{
-		e->offset_x = 0;
 		draw_julia(e);
-	}
-	else if (e->opt1 == 3 && (e->zoom = 0.6))
-	{
-		e->offset_x = 0;
+	else if (e->opt1 == 3 && (e->zoom = 1.1))
 		draw_glynn(e);
-	}
+	else if (e->opt1 == 4 && (e->zoom = 1.1))
+		draw_newton(e);
 }
 
 void				option1(t_data *e)
@@ -40,7 +39,7 @@ void				option1(t_data *e)
 	e->mouse_y = 0;
 	e->motion_x = 0;
 	e->motion_y = 0;
-	e->offset_x = -0.75;
+	e->offset_x = 0;
 	e->offset_y = 0;
 	e->mitr = 150;
 	fract_init(e);
@@ -63,6 +62,8 @@ static void			init1(t_data *e, char *opt)
 		e->opt1 = 2;
 	else if (ft_strcmp(opt, "3") == 0 || ft_strcmp(opt, "glynn") == 0)
 		e->opt1 = 3;
+	else if (ft_strcmp(opt, "4") == 0 || ft_strcmp(opt, "newton") == 0)
+		e->opt1 = 4;
 	else
 		put_usage_error("fractol");
 	option1(e);

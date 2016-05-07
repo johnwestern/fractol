@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 17:43:59 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 23:35:10 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void				draw_mandelbrot(t_data *e);
 void				draw_burning_ship(t_data *e);
 void				draw_julia(t_data *e);
 void				draw_glynn(t_data *e);
+void				draw_newton(t_data *e);
 void				eclips_color(int i, t_data *e);
 void				bw_color(int i, t_data *e);
 void				red_color(int i, t_data *e);
