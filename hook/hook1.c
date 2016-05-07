@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 01:52:09 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 17:45:20 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void		draw_option(t_data *e)
 		draw_burning_ship(e);
 	if (e->opt1 == 2)
 		draw_julia(e);
+	if (e->opt1 == 3)
+		draw_glynn(e);
 }
 
 void		hud_switch(t_data *e)

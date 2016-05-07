@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 14:37:11 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 18:30:06 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void			display_str(t_data *e)
 		if (e->opt1 == 2)
 			mlx_string_put(e->mlx, e->win, 20, 35, \
 			0xFFFFFF, "-> Julia");
+		if (e->opt1 == 3)
+			mlx_string_put(e->mlx, e->win, 20, 35, \
+			0xFFFFFF, "-> Glynn");
 		mlx_string_put(e->mlx, e->win, 20, 10, 0x00FF00, \
 			"[<] change fractal [>]");
 	}
@@ -92,5 +95,6 @@ void			put_usage_error(char *av)
 	ft_putstr(av);
 	ft_putendl(" <fractalias>\n\
 	\nfractalias:\n0 = mandelbrot\n1 = burningship\n2 = julia");
+	ft_putendl("3 = glynn");
 	exit(0);
 }

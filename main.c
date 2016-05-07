@@ -6,21 +6,14 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 14:36:17 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 18:29:48 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void				option1(t_data *e)
+static void			fract_init(t_data *e)
 {
-	e->mouse_x = 0;
-	e->mouse_y = 0;
-	e->motion_x = 0;
-	e->motion_y = 0;
-	e->offset_x = -0.75;
-	e->offset_y = 0;
-	e->mitr = 150;
 	if (e->opt1 == 0 && (e->zoom = 0.85))
 		draw_mandelbrot(e);
 	else if (e->opt1 == 1 && (e->zoom = 38.832687))
@@ -34,6 +27,23 @@ void				option1(t_data *e)
 		e->offset_x = 0;
 		draw_julia(e);
 	}
+	else if (e->opt1 == 3 && (e->zoom = 0.6))
+	{
+		e->offset_x = 0;
+		draw_glynn(e);
+	}
+}
+
+void				option1(t_data *e)
+{
+	e->mouse_x = 0;
+	e->mouse_y = 0;
+	e->motion_x = 0;
+	e->motion_y = 0;
+	e->offset_x = -0.75;
+	e->offset_y = 0;
+	e->mitr = 150;
+	fract_init(e);
 	mlx_hook(e->win, 2, 3, key_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 6, 1L << 6, motion_hook, e);
@@ -51,6 +61,8 @@ static void			init1(t_data *e, char *opt)
 		e->opt1 = 1;
 	else if (ft_strcmp(opt, "2") == 0 || ft_strcmp(opt, "julia") == 0)
 		e->opt1 = 2;
+	else if (ft_strcmp(opt, "3") == 0 || ft_strcmp(opt, "glynn") == 0)
+		e->opt1 = 3;
 	else
 		put_usage_error("fractol");
 	option1(e);
