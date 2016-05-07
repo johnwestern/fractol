@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 18:08:19 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 01:47:52 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct		s_data
 	int				opt2;
 	int				ato;
 	int 			hud;
-	int				start;
+	int				st;
 	int 			cop;
 	double			offset_x;
 	double			mouse_x;
@@ -79,9 +79,9 @@ void				option1(t_data *e);
 void				draw_mandelbrot(t_data *e);
 void				draw_burning_ship(t_data *e);
 void				draw_julia(t_data *e);
-void				set_eclips_color(int i, t_data *e);
-void				set_bw_color(int i, t_data *e);
-void				set_hell_color(int i, t_data *e);
+void				eclips_color(int i, t_data *e);
+void				bw_color(int i, t_data *e);
+void				red_color(int i, t_data *e);
 void				display_str(t_data *e);
 void				man_iter(int key, t_data *e);
 void				draw_option(t_data *e);
@@ -89,5 +89,6 @@ void				hud_switch(t_data *e);
 void				change_color_set(t_data *e, int key);
 void				reset_offset(t_data *e);
 void				fractal_switch(int key, t_data *e);
+void				scroll_zoom(int but, int x, int y, t_data *e);
 
 #endif

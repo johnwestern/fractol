@@ -6,27 +6,35 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 17:40:09 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 01:49:09 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
-int				mouse_hook(int but, int x, int y, t_data *e)
+int				mouse_hook(int b, int x, int y, t_data *e)
 {
-	if (e->start == 1)
+	if (e->st == 1)
 	{
-		if (x < WDH && x > 0 && y < HGHT && y > 0 && but == 1)
+		if (x < WDH && x > 0 && y < HGHT && y > 0 && (b == 1 || b == 2))
 		{
-			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
-			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom *= 1.15;
+			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5)  / e->zoom;
+			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5)  / e->zoom;
+			if (b == 1)
+				e->zoom *= 1.15;
+			else
+				e->zoom /= 1.15;
 		}
-		else if (x < WDH && x > 0 && y < HGHT && y > 0 && but == 2)
+		else if (x < WDH && x > 0 && y < HGHT && y > 0 && (b == 4 || b == 5))
 		{
-			e->mouse_x -= 1.5 * (WDH * 0.5 - x) / (WDH / 2) * 1 / e->zoom;
-			e->mouse_y -= (HGHT * 0.5 - y) / (HGHT / 2) * 1 / e->zoom;
-			e->zoom /= 1.15;
+			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5)  / e->zoom;
+			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5)  / e->zoom;
+			if (b == 4)
+				e->zoom *= 1.15;
+			else
+				e->zoom /= 1.15;
+			e->offset_x += 1.5 * (WDH * 0.5 - x) / (WDH * 0.5) / e->zoom;
+			e->offset_y += (HGHT * 0.5 - y) / (HGHT * 0.5) / e->zoom;
 		}
 		draw_option(e);
 	}
@@ -57,14 +65,14 @@ static void		reset_val(t_data *e)
 	e->ato = 0;
 	e->hud = 0;
 	e->mitr = 100;
-	e->start = 1;
+	e->st = 1;
 	e->zoom = 1;
 	reset_offset(e);
 }
 
 static void		arr_move(int key, t_data *e)
 {
-	if (e->start == 1)
+	if (e->st == 1)
 	{
 		if (key == 126)
 			e->offset_y -= 0.05 * 1 / e->zoom;
@@ -75,35 +83,35 @@ static void		arr_move(int key, t_data *e)
 		else if (key == 124)
 			e->offset_x += 0.075 * 1 / e->zoom;
 	}
-	if (e->start == 0)
+	if (e->st == 0)
 		fractal_switch(key, e);
 }
 
-int				key_hook(int key, t_data *e)
+int				key_hook(int k, t_data *e)
 {
-	if (key == 53)
+	if (k == 53)
 		exit(0);
-	else if (key == 11)
+	else if (k == 11)
 	{
-		e->start = 0;
+		e->st = 0;
 		e->hud = 1;
 		option1(e);
 	}
-	else if (key == 15)
+	else if (k == 49)
 		reset_val(e);
-	else if ((key == 8 && e->start == 1) || ((key == 125 || key == 126) && e->start == 0))
-		change_color_set(e, key);
-	else if (key == 12 && (e->zoom *= 1.15))
+	else if ((k == 8 && e->st == 1) || ((k == 125 || k == 126) && e->st == 0))
+		change_color_set(e, k);
+	else if (k == 12 && (e->zoom *= 1.15))
 		auto_iter(e);
-	else if (key == 0)
+	else if (k == 0)
 		e->zoom /= 1.15;
-	else if (key == 4)
+	else if (k == 4)
 		hud_switch(e);
-	else if (key == 24 || (key == 27))
-		man_iter(key, e);
-	else if (key == 126 || key == 125 || key == 123 || key == 124)
-		arr_move(key, e);
-	if (e->start == 1 || e->opt1 == 2)
+	else if (k == 24 || (k == 27))
+		man_iter(k, e);
+	else if (k == 126 || k == 125 || k == 123 || k == 124)
+		arr_move(k, e);
+	if (e->st == 1 || e->opt1 == 2)
 		draw_option(e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/05/05 00:50:52 by jdavin           ###   ########.fr        #
+#    Updated: 2016/05/07 01:32:27 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,16 @@ INC_DIR = ./
 SRC_DIR = .src/
 
 SRC_FILES = main.c \
-	    	display_strings.c \
-	    	hook.c \
-	    	hook1.c \
-	    	hook2.c \
-	    	draw_mandelbrot.c \
-	    	draw_burning_ship.c \
-	    	draw_julia.c \
-	    	set_color.c \
-	    	set_color2.c \
-	    	set_color3.c
+	    	fractals/mandelbrot.c \
+	    	fractals/burning_ship.c \
+	    	fractals/julia.c \
+	    	hook/hook.c \
+	    	hook/hook1.c \
+	    	hook/hook2.c \
+	    	colors/color.c \
+	    	colors/color1.c \
+	    	colors/color2.c \
+	    	hud.c
 
 O_FILES = $(SRC_FILES:.c=.o)
 

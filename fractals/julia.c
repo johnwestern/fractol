@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_mandelbrot.c                                  :+:      :+:    :+:   */
+/*   draw_julia.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/25 17:38:27 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 17:43:21 by jdavin           ###   ########.fr       */
+/*   Created: 2016/05/02 15:09:54 by jdavin            #+#    #+#             */
+/*   Updated: 2016/05/07 01:36:11 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 static void			set_pixel(int x, int y, t_data *e, int i)
 {
@@ -20,24 +20,25 @@ static void			set_pixel(int x, int y, t_data *e, int i)
 	octet = e->sizeline / WDH;
 	pos = x * octet + y * e->sizeline;
 	if (e->cop == 0)
-		set_eclips_color(i, e);
+		eclips_color(i, e);
 	if (e->cop == 1)
-		set_bw_color(i, e);
+		bw_color(i, e);
 	if (e->cop == 2)
-		set_hell_color(i, e);
+		red_color(i, e);
 	if (ft_memcmp(e->data + pos, &e->color.color, octet) != 0)
 		ft_memcpy(e->data + pos, &e->color.color, octet);
 }
 
-static int			iter(t_data *e, t_cplx c)
+static int			iter(t_data *e, t_cplx c, int px, int py)
 {
 	register t_cplx	tmp;
 	int				i;
 	double			x;
 
 	i = 0;
-	tmp.x = e->motion_x;
-	tmp.y = e->motion_y;
+	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + \
+	e->mouse_x;
+	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + e->mouse_y;
 	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
@@ -48,7 +49,7 @@ static int			iter(t_data *e, t_cplx c)
 	return (i);
 }
 
-void				draw_mandelbrot(t_data *e)
+void				draw_julia(t_data *e)
 {
 	int				i;
 	int				x;
@@ -61,11 +62,9 @@ void				draw_mandelbrot(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = 1.5 * (x - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + \
-			e->mouse_x;
-			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
-			e->mouse_y;
-			i = iter(e, c);
+			c.x = -0.739453 + e->motion_x;
+			c.y = 0.081755 + e->motion_y;
+			i = iter(e, c, x, y);
 			set_pixel(x, y, e, i);
 			x++;
 		}

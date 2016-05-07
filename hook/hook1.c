@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook2.c                                            :+:      :+:    :+:   */
+/*   hook1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/06 15:32:00 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 01:52:09 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void		change_color_set(t_data *e, int key)
 {
@@ -25,21 +25,17 @@ void		change_color_set(t_data *e, int key)
 	}
 	else if (key == 126)
 	{
-		if (e->cop == 0)
-			e->cop = 1;
-		else if (e->cop == 1)
-			e->cop = 2;
+		if (e->cop < 2)
+			e->cop += 1;
 		else
 			e->cop = 0;
 	}
 	else if (key == 125)
 	{
-		if (e->cop == 0)
-			e->cop = 2;
-		else if (e->cop == 2)
-			e->cop = 1;
+		if (e->cop > 0)
+			e->cop -= 1;
 		else
-			e->cop = 0;
+			e->cop = 2;
 	}
 	draw_option(e);
 }
