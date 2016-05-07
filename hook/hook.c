@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 14:39:23 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 00:30:11 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void		reset_val(t_data *e)
 	e->mouse_x = 0;
 	e->ato = 0;
 	e->hud = 0;
-	e->mitr = 100;
+	e->mitr = 150;
 	e->st = 1;
 	e->zoom = 1;
 	reset_offset(e);

@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 23:37:21 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 00:24:29 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ static void		fractal_name(t_data *e)
 {
 	if (e->opt1 == 0)
 		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Mandelbrot");
-	else if (e->opt1 == 1)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Burning Ship");
-	else if (e->opt1 == 2)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Julia");
 	else if (e->opt1 == 3)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Burning Ship");
+	else if (e->opt1 == 1)
+		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Julia");
+	else if (e->opt1 == 2)
 		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Glynn");
 	else if (e->opt1 == 4)
 		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Newton");
@@ -97,7 +97,7 @@ void			put_usage_error(char *av)
 	ft_putstr("Usage : ./");
 	ft_putstr(av);
 	ft_putendl(" <fractalias>\n\
-	\nfractalias:\n0 = mandelbrot\n1 = burningship\n2 = julia");
-	ft_putendl("3 = glynn\n4 = newton");
+	\nfractalias:\n0 = mandelbrot\n1 = julia\n2 = glynn");
+	ft_putendl("3 = burningship\n4 = newton");
 	exit(0);
 }

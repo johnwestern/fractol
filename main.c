@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 23:56:41 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 00:23:05 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ static void			fract_init(t_data *e)
 		e->offset_x = -0.75;
 		draw_mandelbrot(e);
 	}
-	else if (e->opt1 == 1 && (e->zoom = 38.832687))
+	else if (e->opt1 == 1 && (e->zoom = 0.8))
+		draw_julia(e);
+	else if (e->opt1 == 2 && (e->zoom = 1.1))
+		draw_glynn(e);
+	else if (e->opt1 == 3 && (e->zoom = 38.832687))
 	{
 		e->offset_x = -1.644804;
 		e->offset_y = -0.016320;
 		draw_burning_ship(e);
 	}
-	else if (e->opt1 == 2 && (e->zoom = 0.8))
-		draw_julia(e);
-	else if (e->opt1 == 3 && (e->zoom = 1.1))
-		draw_glynn(e);
 	else if (e->opt1 == 4 && (e->zoom = 0.6))
 		draw_newton(e);
 }
@@ -56,11 +56,11 @@ static void			init1(t_data *e, char *opt)
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
 	if (ft_strcmp(opt, "0") == 0 || ft_strcmp(opt, "mandelbrot") == 0)
 		e->opt1 = 0;
-	else if (ft_strcmp(opt, "1") == 0 || ft_strcmp(opt, "burningship") == 0)
+	else if (ft_strcmp(opt, "1") == 0 || ft_strcmp(opt, "julia") == 0)
 		e->opt1 = 1;
-	else if (ft_strcmp(opt, "2") == 0 || ft_strcmp(opt, "julia") == 0)
+	else if (ft_strcmp(opt, "2") == 0 || ft_strcmp(opt, "glynn") == 0)
 		e->opt1 = 2;
-	else if (ft_strcmp(opt, "3") == 0 || ft_strcmp(opt, "glynn") == 0)
+	else if (ft_strcmp(opt, "3") == 0 || ft_strcmp(opt, "burningship") == 0)
 		e->opt1 = 3;
 	else if (ft_strcmp(opt, "4") == 0 || ft_strcmp(opt, "newton") == 0)
 		e->opt1 = 4;

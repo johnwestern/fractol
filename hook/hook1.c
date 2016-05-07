@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 22:25:26 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 00:26:20 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void		draw_option(t_data *e)
 {
 	if (e->opt1 == 0)
 		draw_mandelbrot(e);
-	if (e->opt1 == 1)
+	else if (e->opt1 == 3)
 		draw_burning_ship(e);
-	if (e->opt1 == 2)
+	else if (e->opt1 == 1)
 		draw_julia(e);
-	if (e->opt1 == 3)
+	else if (e->opt1 == 2)
 		draw_glynn(e);
-	if (e->opt1 == 4)
+	else if (e->opt1 == 4)
 		draw_newton(e);
 }
 
