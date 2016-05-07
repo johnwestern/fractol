@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 01:47:10 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 02:35:06 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static void			init1(t_data *e, char *opt)
 	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
 	e->img = mlx_new_image(e->mlx, WDH, HGHT);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
-	if (ft_strcmp(opt, "m") == 0 || ft_strcmp(opt, "mandelbrot") == 0)
+	if (ft_strcmp(opt, "0") == 0 || ft_strcmp(opt, "mandelbrot") == 0)
 		e->opt1 = 0;
-	else if (ft_strcmp(opt, "b") == 0 || ft_strcmp(opt, "burningship") == 0)
+	else if (ft_strcmp(opt, "1") == 0 || ft_strcmp(opt, "burningship") == 0)
 		e->opt1 = 1;
-	else if (ft_strcmp(opt, "j") == 0 || ft_strcmp(opt, "julia") == 0)
+	else if (ft_strcmp(opt, "2") == 0 || ft_strcmp(opt, "julia") == 0)
 		e->opt1 = 2;
 	else
 		put_usage_error("fractol");

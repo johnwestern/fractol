@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 02:20:57 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 02:35:40 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void			put_usage_error(char *av)
 	ft_putstr("Usage : ./");
 	ft_putstr(av);
 	ft_putendl(" <fractalias>\n\
-	\nfractalias:\nm = mandelbrot\nb = burningship\nj = julia");
+	\nfractalias:\n0 = mandelbrot\n1 = burningship\n2 = julia");
 	exit(0);
 }
