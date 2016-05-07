@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/07 20:53:00 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 23:31:37 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 23:39:59 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 	{
 		poule.x = tmp.x * tmp.x;
 		poule.y = tmp.y * tmp.y;
-		nwt = 3.0 * ((poule.x - poule.y) * (poule.x - poule.y) + 4.0 * poule.x * poule.y);
+		nwt = 3.0 * ((poule.x - poule.y) * (poule.x - poule.y) +\
+		 4.0 * poule.x * poule.y);
 		if (nwt == 0)
-			nwt = 0.0000001;
+			nwt = 0.000001;
 		x = tmp.x;
 		tmp.x = (2/3) * tmp.x + (poule.x - poule.y) / nwt + c.x;
 		tmp.y = (2/3) * tmp.y - (2 * x * tmp.y) / nwt + c.y;
@@ -71,7 +72,7 @@ void				draw_newton(t_data *e)
 		while (x < WDH)
 		{
 			c.x = 0.415483 - fabs(e->motion_x / 2);
-			c.y = 0.361111 + e->motion_y;
+			c.y = 0.361111 - fabs(e->motion_y);
 			i = iter(e, c, x, y);
 			set_pixel(x, y, e, i);
 			x++;

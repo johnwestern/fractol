@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 20:51:58 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 23:56:41 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void			fract_init(t_data *e)
 		draw_julia(e);
 	else if (e->opt1 == 3 && (e->zoom = 1.1))
 		draw_glynn(e);
-	else if (e->opt1 == 4 && (e->zoom = 1.1))
+	else if (e->opt1 == 4 && (e->zoom = 0.6))
 		draw_newton(e);
 }
 
