@@ -6,13 +6,13 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 02:35:06 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 14:36:17 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			option1(t_data *e)
+void				option1(t_data *e)
 {
 	e->mouse_x = 0;
 	e->mouse_y = 0;
@@ -36,8 +36,7 @@ void			option1(t_data *e)
 	}
 	mlx_hook(e->win, 2, 3, key_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
-	if (e->opt1 == 2)
-		mlx_hook(e->win, 6, 1L<<6, motion_hook, e);
+	mlx_hook(e->win, 6, 1L << 6, motion_hook, e);
 }
 
 static void			init1(t_data *e, char *opt)

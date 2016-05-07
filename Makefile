@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/05/07 01:32:27 by jdavin           ###   ########.fr        #
+#    Updated: 2016/05/07 14:56:07 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ INC_DIR = ./
 SRC_DIR = .src/
 
 SRC_FILES = main.c \
-	    	fractals/mandelbrot.c \
-	    	fractals/burning_ship.c \
-	    	fractals/julia.c \
+	    	actals/mandelbrot.c \
+	    	actals/burning_ship.c \
+	    	actals/julia.c \
 	    	hook/hook.c \
 	    	hook/hook1.c \
 	    	hook/hook2.c \
@@ -32,7 +32,7 @@ O_FILES = $(SRC_FILES:.c=.o)
 
 CC = gcc
 
-CC_FLAGS = -Wall -Werror -Wextra -lm -O3 -Ofast
+CC_FLAGS = -Wall -Werror -Wextra -lm -Ofast
 
 I_LIBFT = -I libft/ -I minilibx_macos/
 

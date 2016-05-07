@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 01:47:52 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 15:01:28 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ typedef struct		s_cplx
 	double			y;
 }					t_cplx;
 
-typedef struct 		s_flcl
+typedef struct		s_flcl
 {
 	float			a;
 	float			b;
 	float			c;
 	float			l;
 }					t_flcl;
-	
 
 typedef struct		s_data
 {
@@ -54,9 +53,9 @@ typedef struct		s_data
 	int				opt1;
 	int				opt2;
 	int				ato;
-	int 			hud;
+	int				hud;
 	int				st;
-	int 			cop;
+	int				cop;
 	double			offset_x;
 	double			mouse_x;
 	float			motion_x;

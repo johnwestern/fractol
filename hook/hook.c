@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:37:49 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 01:49:09 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 14:39:23 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int				mouse_hook(int b, int x, int y, t_data *e)
 	{
 		if (x < WDH && x > 0 && y < HGHT && y > 0 && (b == 1 || b == 2))
 		{
-			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5)  / e->zoom;
-			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5)  / e->zoom;
+			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5) / e->zoom;
+			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5) / e->zoom;
 			if (b == 1)
 				e->zoom *= 1.15;
 			else
@@ -27,8 +27,8 @@ int				mouse_hook(int b, int x, int y, t_data *e)
 		}
 		else if (x < WDH && x > 0 && y < HGHT && y > 0 && (b == 4 || b == 5))
 		{
-			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5)  / e->zoom;
-			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5)  / e->zoom;
+			e->mouse_x += 1.5 * (x - WDH * 0.5) / (WDH * 0.5) / e->zoom;
+			e->mouse_y += (y - HGHT * 0.5) / (HGHT * 0.5) / e->zoom;
 			if (b == 4)
 				e->zoom *= 1.15;
 			else
