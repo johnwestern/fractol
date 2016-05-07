@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 02:14:04 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/07 02:20:57 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static void		display_str1(t_data *e)
 				"[Q] = zoom & auto_iter");
 			mlx_string_put(e->mlx, e->win, 20, (HGHT - 95), 0xFFFFFF, \
 				"[mouse & clic] = focus on a point");
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0x00FF00, \
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0x00FF00, \
 				"[Space] = Restart exploration");
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 75), 0xFF0000, \
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xFF0000, \
 				"[B] = Back to menu");
-			mlx_string_put(e->mlx, e->win, 20, (HGHT - 35), 0xF7F700, \
+			mlx_string_put(e->mlx, e->win, 20, (HGHT - 55), 0xF7F700, \
 				"[H] = Hide this");
 		}
 		else
