@@ -23,6 +23,7 @@ SRC_FILES = main.c \
 	    	actals/glynn.c \
 	    	actals/newton.c \
 	    	actals/tricorn.c \
+	    	actals/broco.c \
 	    	hook/hook.c \
 	    	hook/hook1.c \
 	    	hook/hook2.c \

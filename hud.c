@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 04:30:29 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 11:56:00 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 13:24:19 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,6 @@ static void		display_str1(t_data *e)
 		mlx_string_put(e->mlx, e->win, 10, (HGHT - 30), 0xFFFF00, "[H]");
 }
 
-static void		fractal_name(t_data *e)
-{
-	if (e->opt1 == 0)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Mandelbrot");
-	else if (e->opt1 == 3)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Burning Ship");
-	else if (e->opt1 == 1)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Julia");
-	else if (e->opt1 == 2)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Glynn");
-	else if (e->opt1 == 4)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Newton");
-	else if (e->opt1 == 5)
-		mlx_string_put(e->mlx, e->win, 20, 35, 0xFFFFFF, "-> Tricorn");
-}
-
 void			display_str(t_data *e)
 {
 	if (e->st == 1)
@@ -98,8 +82,8 @@ void			put_usage_error(char *av)
 {
 	ft_putstr("Usage : ./");
 	ft_putstr(av);
-	ft_putendl(" <fractalias>\n\
+	ft_putendl(" <fractal_name>\n\
 	\nfractalias:\n0 = mandelbrot\n1 = julia\n2 = glynn");
-	ft_putendl("3 = burningship\n4 = newton\n5 = tricorne");
+	ft_putendl("3 = burningship\n4 = newton\n5 = tricorne\n6 = broco");
 	exit(0);
 }

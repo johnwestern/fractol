@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:09:23 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 11:55:33 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 14:39:30 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void				draw_julia(t_data *e);
 void				draw_glynn(t_data *e);
 void				draw_newton(t_data *e);
 void				draw_tricorn(t_data *e);
+void				draw_broco(t_data *e);
 void				eclips_color(int i, t_data *e);
 void				bw_color(int i, t_data *e);
 void				red_color(int i, t_data *e);
@@ -92,5 +93,6 @@ void				change_color_set(t_data *e, int key);
 void				reset_offset(t_data *e);
 void				fractal_switch(int key, t_data *e);
 void				scroll_zoom(int but, int x, int y, t_data *e);
+void				fractal_name(t_data *e);
 
 #endif

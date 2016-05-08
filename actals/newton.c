@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/07 20:53:00 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 00:40:29 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 13:29:17 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 {
 	register t_cplx	tmp;
 	register t_cplx	poule;
-	double 			nwt;
+	double			nwt;
 	int				i;
 	double			x;
-
 
 	i = 0;
 	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + \
@@ -46,13 +45,13 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 	{
 		poule.x = tmp.x * tmp.x;
 		poule.y = tmp.y * tmp.y;
-		nwt = 3.0 * ((poule.x - poule.y) * (poule.x - poule.y) +\
-		 4.0 * poule.x * poule.y);
+		nwt = 3.0 * ((poule.x - poule.y) * (poule.x - poule.y) + \
+		4.0 * poule.x * poule.y);
 		if (nwt == 0)
 			nwt = 0.000001;
 		x = tmp.x;
-		tmp.x = (2/3) * tmp.x + (poule.x - poule.y) / nwt + c.x;
-		tmp.y = (2/3) * tmp.y - (2 * x * tmp.y) / nwt + c.y;
+		tmp.x = (2 / 3) * tmp.x + (poule.x - poule.y) / nwt + c.x;
+		tmp.y = (2 / 3) * tmp.y - (2 * x * tmp.y) / nwt + c.y;
 		i++;
 	}
 	return (i);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   glynn.c                                            :+:      :+:    :+:   */
+/*   broco.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/07 16:36:20 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 13:27:33 by jdavin           ###   ########.fr       */
+/*   Created: 2016/05/08 13:07:11 by jdavin            #+#    #+#             */
+/*   Updated: 2016/05/08 14:27:49 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ static int			iter(t_data *e, t_cplx c, int px, int py)
 	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
-		tmp.x = sqrt((tmp.x * tmp.x - tmp.y * tmp.y) * \
-		(tmp.x * tmp.x - tmp.y * tmp.y)) + c.x;
+		tmp.x = sqrt((tmp.x * tmp.x - tmp.y * tmp.y) *\
+			(tmp.x * tmp.x - tmp.y * tmp.y)) + c.x;
 		tmp.y = sqrt((2 * x * tmp.y) * (2 * x * tmp.y)) + c.y;
 		i++;
 	}
 	return (i);
 }
 
-void				draw_glynn(t_data *e)
+void				draw_broco(t_data *e)
 {
 	int				i;
 	int				x;
@@ -63,8 +63,8 @@ void				draw_glynn(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = 0.285156 - fabs(e->motion_x / 200);
-			c.y = 0.004630 + fabs(e->motion_y / 200);
+			c.x = -0.699219 - fabs(e->motion_x / 20);
+			c.y = 0.154630 + fabs(e->motion_y / 20);
 			i = iter(e, c, x, y);
 			set_pixel(x, y, e, i);
 			x++;

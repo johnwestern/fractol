@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 12:05:23 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 14:33:47 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ static void			fract_init(t_data *e)
 	}
 	else if (e->opt1 == 4 && (e->zoom = 0.6))
 		draw_newton(e);
-	else if (e->opt1 == 5 && (e->zoom = 0.7))
+	else if (e->opt1 == 5 && (e->zoom = 0.65))
 		draw_tricorn(e);
+	else if (e->opt1 == 6 && (e->zoom = 0.7))
+		draw_broco(e);
 }
 
 void				option1(t_data *e)
@@ -52,10 +54,6 @@ void				option1(t_data *e)
 
 static void			init1(t_data *e, char *opt)
 {
-	e->mlx = mlx_init();
-	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
-	e->img = mlx_new_image(e->mlx, WDH, HGHT);
-	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
 	if (ft_strcmp(opt, "0") == 0 || ft_strcmp(opt, "mandelbrot") == 0)
 		e->opt1 = 0;
 	else if (ft_strcmp(opt, "1") == 0 || ft_strcmp(opt, "julia") == 0)
@@ -68,10 +66,14 @@ static void			init1(t_data *e, char *opt)
 		e->opt1 = 4;
 	else if (ft_strcmp(opt, "5") == 0 || ft_strcmp(opt, "tricorn") == 0)
 		e->opt1 = 5;
-	else if (ft_strcmp(opt, "6") == 0 || ft_strcmp(opt, "???") == 0)
+	else if (ft_strcmp(opt, "6") == 0 || ft_strcmp(opt, "broco") == 0)
 		e->opt1 = 6;
 	else
 		put_usage_error("fractol");
+	e->mlx = mlx_init();
+	e->win = mlx_new_window(e->mlx, WDH, HGHT, "Fract\'ol");
+	e->img = mlx_new_image(e->mlx, WDH, HGHT);
+	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
 	option1(e);
 	mlx_loop(e->mlx);
 }
