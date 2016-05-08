@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 17:07:53 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 00:23:05 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 12:05:23 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void			fract_init(t_data *e)
 	}
 	else if (e->opt1 == 4 && (e->zoom = 0.6))
 		draw_newton(e);
+	else if (e->opt1 == 5 && (e->zoom = 0.7))
+		draw_tricorn(e);
 }
 
 void				option1(t_data *e)
@@ -64,6 +66,10 @@ static void			init1(t_data *e, char *opt)
 		e->opt1 = 3;
 	else if (ft_strcmp(opt, "4") == 0 || ft_strcmp(opt, "newton") == 0)
 		e->opt1 = 4;
+	else if (ft_strcmp(opt, "5") == 0 || ft_strcmp(opt, "tricorn") == 0)
+		e->opt1 = 5;
+	else if (ft_strcmp(opt, "6") == 0 || ft_strcmp(opt, "???") == 0)
+		e->opt1 = 6;
 	else
 		put_usage_error("fractol");
 	option1(e);

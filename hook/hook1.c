@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 22:10:56 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 00:26:20 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 11:56:16 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void		draw_option(t_data *e)
 		draw_glynn(e);
 	else if (e->opt1 == 4)
 		draw_newton(e);
+	else if (e->opt1 == 5)
+		draw_tricorn(e);
 }
 
 void		hud_switch(t_data *e)

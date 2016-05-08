@@ -6,7 +6,7 @@
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 21:35:37 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/07 21:04:03 by jdavin           ###   ########.fr       */
+/*   Updated: 2016/05/08 11:46:33 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void		fractal_switch(int key, t_data *e)
 		if (e->opt1 > 0)
 			e->opt1 -= 1;
 		else
-			e->opt1 = 4;
+			e->opt1 = 5;
 	}
 	if (key == 124)
 	{
-		if (e->opt1 < 4)
+		if (e->opt1 < 5)
 			e->opt1 += 1;
 		else
 			e->opt1 = 0;

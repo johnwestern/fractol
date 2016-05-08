@@ -6,7 +6,7 @@
 #    By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/30 22:21:38 by jdavin            #+#    #+#              #
-#    Updated: 2016/05/07 20:56:45 by jdavin           ###   ########.fr        #
+#    Updated: 2016/05/08 11:55:45 by jdavin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_FILES = main.c \
 	    	actals/julia.c \
 	    	actals/glynn.c \
 	    	actals/newton.c \
+	    	actals/tricorn.c \
 	    	hook/hook.c \
 	    	hook/hook1.c \
 	    	hook/hook2.c \

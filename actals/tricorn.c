@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   glynn.c                                            :+:      :+:    :+:   */
+/*   tricorne.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdavin <jdavin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/07 16:36:20 by jdavin            #+#    #+#             */
-/*   Updated: 2016/05/08 00:54:01 by jdavin           ###   ########.fr       */
+/*   Created: 2016/05/08 11:36:02 by jdavin            #+#    #+#             */
+/*   Updated: 2016/05/08 12:03:48 by jdavin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,26 @@ static void			set_pixel(int x, int y, t_data *e, int i)
 		ft_memcpy(e->data + pos, &e->color.color, octet);
 }
 
-static int			iter(t_data *e, t_cplx c, int px, int py)
+static int			iter(t_data *e, t_cplx c)
 {
 	register t_cplx	tmp;
 	int				i;
 	double			x;
 
 	i = 0;
-	tmp.x = 1.5 * (px - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + \
-	e->mouse_x;
-	tmp.y = (py - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + e->mouse_y;
+	tmp.x = e->motion_x;
+	tmp.y = e->motion_y;
 	while (i < e->mitr && (tmp.x * tmp.x + tmp.y * tmp.y) < 4)
 	{
 		x = tmp.x;
-		tmp.x =  sqrt((tmp.x * tmp.x - tmp.y * tmp.y) *\
-			(tmp.x * tmp.x - tmp.y * tmp.y)) + c.x;
-		tmp.y =  sqrt((2 * x * tmp.y) * (2 * x * tmp.y)) + c.y;
+		tmp.x = tmp.x * tmp.x - tmp.y * tmp.y + c.x;
+		tmp.y = -(2 * x * tmp.y) + c.y;
 		i++;
 	}
 	return (i);
 }
 
-void				draw_glynn(t_data *e)
+void				draw_tricorn(t_data *e)
 {
 	int				i;
 	int				x;
@@ -63,9 +61,11 @@ void				draw_glynn(t_data *e)
 		x = 0;
 		while (x < WDH)
 		{
-			c.x = 0.285156 - fabs(e->motion_x);
-			c.y = 0.004630 + fabs(e->motion_y);
-			i = iter(e, c, x, y);
+			c.x = 1.5 * (x - WDH / 2) / (0.5 * e->zoom * WDH) + e->offset_x + \
+			e->mouse_x;
+			c.y = (y - HGHT / 2) / (0.5 * e->zoom * HGHT) + e->offset_y + \
+			e->mouse_y;
+			i = iter(e, c);
 			set_pixel(x, y, e, i);
 			x++;
 		}
